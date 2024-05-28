@@ -1,9 +1,12 @@
 import './App.css';
+import NavDrawer from './components/NavDrawer';
+import NoteEditor from './components/NoteEditor';
 
 function App() {
   return (
     <>
-      <h1>Lotion</h1>
+      <NavDrawer />
+      <NoteEditor />
     </>
   );
 }
