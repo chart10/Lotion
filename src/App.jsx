@@ -1,6 +1,5 @@
 import './App.css';
-import NavDrawer from './components/NavDrawer';
-import NoteEditor from './components/NoteEditor';
+import { NavDrawer, NoteEditor } from './components';
 
 function App() {
   return (

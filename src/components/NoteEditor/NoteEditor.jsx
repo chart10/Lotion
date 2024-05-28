@@ -1,6 +1,8 @@
+import './NoteEditor.css';
+
 const NoteEditor = () => {
   return (
-    <div>
+    <div className='note-editor'>
       <h1>Note Editor</h1>
     </div>
   );

@@ -1,0 +1,21 @@
+html {
+  background-color: black;
+  color: white;
+}
+#root {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.nav-drawer {
+  border: 1px solid white;
+  border-radius: 2px;
+  grid-column: 1;
+  margin-right: 25px;
+  padding: 0 10px;
+}
+
+.note-editor {
+  grid-column: 2;
+}
