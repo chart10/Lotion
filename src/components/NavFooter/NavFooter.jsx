@@ -1,4 +1,14 @@
+import { links } from '../../utils/links';
+import FooterLink from '../FooterLink/FooterLink';
+import './NavFooter.css';
+
 const NavFooter = () => {
-  return <div className='nav-footer'>NavFooter</div>;
+  return (
+    <div className='nav-footer'>
+      {links.map((link) => {
+        return <FooterLink key={link.title} {...link} />;
+      })}
+    </div>
+  );
 };
 export default NavFooter;
