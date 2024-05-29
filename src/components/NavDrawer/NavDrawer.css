@@ -1,0 +1,27 @@
+.nav-drawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  gap: 1rem;
+}
+.nav-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-footer {
+  margin-top: auto;
+  align-self: center;
+}
+h1 {
+  margin: 0;
+}
+.new-note-btn {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 2px;
+  padding: 5px;
+}

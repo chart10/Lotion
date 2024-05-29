@@ -1,4 +1,4 @@
 const NavFooter = () => {
-  return <div>NavFooter</div>;
+  return <div className='nav-footer'>NavFooter</div>;
 };
 export default NavFooter;

@@ -1,9 +1,18 @@
+import NavFooter from '../NavFooter/NavFooter';
+import NoteList from '../NoteList/NoteList';
+import UserBadge from '../UserBadge/UserBadge';
 import './NavDrawer.css';
 
 const NavDrawer = () => {
   return (
     <div className='nav-drawer'>
-      <h1>Navigation Drawer</h1>
+      <div className='nav-header'>
+        <h1>Lotion</h1>
+        <UserBadge />
+      </div>
+      <button className='new-note-btn'>+ New Note</button>
+      <NoteList />
+      <NavFooter />
     </div>
   );
 };
