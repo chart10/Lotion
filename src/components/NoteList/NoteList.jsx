@@ -1,5 +1,5 @@
 import Note from '../Note/Note';
-import './NoteList.css';
+import './NoteList.scss';
 
 const NoteList = () => {
   return (

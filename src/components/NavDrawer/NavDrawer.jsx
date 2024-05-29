@@ -1,7 +1,7 @@
 import NavFooter from '../NavFooter/NavFooter';
 import NoteList from '../NoteList/NoteList';
 import UserBadge from '../UserBadge/UserBadge';
-import './NavDrawer.css';
+import './NavDrawer.scss';
 
 const NavDrawer = () => {
   return (

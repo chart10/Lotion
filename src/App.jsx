@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { NavDrawer, NoteEditor } from './components';
 
 function App() {
