@@ -4,7 +4,7 @@ const NoteEditor = () => {
   return (
     <div className='note-editor'>
       <h1 className='note-title'>Note Title</h1>
-      <p>
+      <p className='note-text'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam imperdiet
         est ac lectus dignissim tristique. Integer vel metus non libero
         vulputate vestibulum. Suspendisse in leo id est molestie mattis non nec
