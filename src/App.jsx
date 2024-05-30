@@ -16,7 +16,7 @@ function App() {
   }, []);
   return (
     <>
-      <NavDrawer services={services} />
+      <NavDrawer services={services} test='test' />
       <NoteEditor services={services} />
     </>
   );
