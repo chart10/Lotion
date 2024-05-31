@@ -4,14 +4,13 @@ import UserBadge from '../UserBadge/UserBadge';
 import './NavDrawer.scss';
 
 const NavDrawer = ({ notes, currentNote, setCurrentNote }) => {
-  console.log(notes);
   return (
     <div className='nav-drawer'>
       <div className='nav-header'>
         <h1>Lotion</h1>
         <UserBadge />
       </div>
-      <button className='new-note-btn'>+ New Note</button>
+      <button className='btn new-note-btn'>+ New Note</button>
       <NoteList
         notes={notes}
         currentNote={currentNote}

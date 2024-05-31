@@ -1,15 +1,28 @@
 .note-editor {
   margin: 20px 60px;
+  max-height: 93vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .note-title {
-  padding: 0 30px 30px 0;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #2a2a2a;
 }
 
-p {
+.note-text {
+  white-space: pre-wrap;
   line-height: 1.5rem;
+  overflow: scroll;
+  scrollbar-color: white #2a2a2a;
+  scrollbar-width: thin;
+  // -ms-overflow-style: none; /* IE and Edge */
+  // scrollbar-width: none; /* Firefox */
+  margin: 1rem 0;
 }
+// .note-text::-webkit-scrollbar {
+//   display: none;
+// }
 .btn-container {
   display: flex;
   justify-content: right;

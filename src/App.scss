@@ -4,19 +4,17 @@ html {
   font-family: 'Merriweather', serif;
   letter-spacing: 1.5px;
   font-weight: 300;
+  // overscroll-behavior-y: none;
 }
 #root {
-  height: 100vh;
+  height: 93vh;
   display: grid;
   grid-template-columns: 1fr 3fr;
+  gap: 50px;
 }
 
 .nav-drawer {
-  border: 1px solid white;
-  border-radius: 2px;
   grid-column: 1;
-  margin-right: 25px;
-  padding: 0 10px;
 }
 
 .note-editor {
@@ -32,4 +30,5 @@ html {
   border: 1px solid white;
   border-radius: 2px;
   padding: 5px;
+  cursor: pointer;
 }
