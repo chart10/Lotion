@@ -3,7 +3,7 @@ import './NoteList.scss';
 
 const NoteList = (props) => {
   // Test prop drilling of services
-  console.log(props.services.noteService.getNote(1));
+  console.log(props.services.noteService.getNotes());
 
   return (
     <div className='note-list'>
