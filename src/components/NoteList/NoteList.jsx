@@ -1,14 +1,17 @@
 import Note from '../Note/Note';
 import './NoteList.scss';
-const NoteList = ({ notes }) => {
-  // const notes = services.noteService.getNotes();
-  // console.log(notes);
-  console.log(notes);
-
+const NoteList = ({ notes, currentNote, setCurrentNote }) => {
   return (
     <div className='note-list'>
       {notes.map((note) => {
-        return <Note key={note.id} {...note} />;
+        return (
+          <Note
+            key={note.id}
+            note={note}
+            currentNote={currentNote}
+            setCurrentNote={setCurrentNote}
+          />
+        );
       })}
     </div>
   );

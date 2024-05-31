@@ -1,4 +1,12 @@
-const Note = (props) => {
-  return <div className='note'>{props.title}</div>;
+import './Note.scss';
+const Note = ({ note, currentNote, setCurrentNote }) => {
+  return (
+    <div
+      className={note.id === currentNote.id ? 'note current-note' : 'note'}
+      onClick={() => setCurrentNote(note)}
+    >
+      {note.title}
+    </div>
+  );
 };
 export default Note;

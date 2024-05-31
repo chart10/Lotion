@@ -3,7 +3,7 @@ import NoteList from '../NoteList/NoteList';
 import UserBadge from '../UserBadge/UserBadge';
 import './NavDrawer.scss';
 
-const NavDrawer = ({ notes }) => {
+const NavDrawer = ({ notes, currentNote, setCurrentNote }) => {
   console.log(notes);
   return (
     <div className='nav-drawer'>
@@ -12,7 +12,11 @@ const NavDrawer = ({ notes }) => {
         <UserBadge />
       </div>
       <button className='new-note-btn'>+ New Note</button>
-      <NoteList notes={notes} />
+      <NoteList
+        notes={notes}
+        currentNote={currentNote}
+        setCurrentNote={setCurrentNote}
+      />
       <NavFooter />
     </div>
   );
