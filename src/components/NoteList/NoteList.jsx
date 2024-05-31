@@ -2,14 +2,14 @@ import Note from '../Note/Note';
 import './NoteList.scss';
 
 const NoteList = (props) => {
-  // Test prop drilling of services
-  console.log(props.services.noteService.getNotes());
+  const notes = props.services.noteService.getNotes();
+  console.log(notes);
 
   return (
     <div className='note-list'>
-      <Note />
-      <Note />
-      <Note />
+      {notes.map((note) => {
+        return <Note key={note.id} {...note} />;
+      })}
     </div>
   );
 };
