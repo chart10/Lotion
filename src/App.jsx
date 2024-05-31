@@ -1,18 +1,12 @@
 import './App.scss';
+import { useEffect, useState } from 'react';
 import { NavDrawer, NoteEditor } from './components';
 import services from './services/services';
-import { useEffect, useState } from 'react';
+import { stockNotes } from './utils/stockNotes';
 
 function App() {
   useEffect(() => {
-    services.noteService.createNote({
-      title: 'My Thesis',
-      text: 'Paper Mario is great',
-    });
-    services.noteService.createNote({
-      title: 'Reminder',
-      text: 'Feed the cat',
-    });
+    stockNotes.forEach((item) => services.noteService.createNote(item));
   }, []);
   const notes = services.noteService.getNotes();
   const [currentNote, setCurrentNote] = useState(notes[0]);

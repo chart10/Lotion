@@ -10,3 +10,10 @@
 p {
   line-height: 1.5rem;
 }
+.btn-container {
+  display: flex;
+  justify-content: right;
+}
+.save-btn {
+  width: 100px;
+}

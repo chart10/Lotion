@@ -11,7 +11,6 @@ export default class NoteService {
       if (note) notes.push(note);
       currentId = currentId + 1;
     }
-    // notes.push(JSON.parse(localStorage.getItem(`note.1`)));
     return notes;
   }
   getNote(noteId) {
@@ -24,4 +23,12 @@ export default class NoteService {
     localStorage.setItem(`note.${note.id}`, JSON.stringify(note));
     return note.id;
   }
+  // UpdateNote Function
+  updateNote(newNote) {
+    localStorage.setItem(`note.${newNote.id}`, JSON.stringify(newNote));
+    console.log('Note updated');
+    return 'success';
+  }
+
+  // DeleteNote Function
 }
