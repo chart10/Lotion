@@ -1,7 +1,7 @@
 import './App.scss';
 import { NavDrawer, NoteEditor } from './components';
 import services from './services/services';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   useEffect(() => {
@@ -14,10 +14,22 @@ function App() {
       text: 'Feed the cat',
     });
   }, []);
+  const notes = services.noteService.getNotes();
+  const [currentNote, setCurrentNote] = useState(notes[0]);
+  console.log(notes);
+
   return (
     <>
-      <NavDrawer services={services} test='test' />
-      <NoteEditor services={services} />
+      <NavDrawer
+        notes={notes}
+        currentNote={currentNote}
+        setCurrentNote={setCurrentNote}
+      />
+      <NoteEditor
+        services={services}
+        currentNote={currentNote}
+        setCurrentNote={setCurrentNote}
+      />
     </>
   );
 }

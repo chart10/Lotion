@@ -3,8 +3,8 @@ import NoteList from '../NoteList/NoteList';
 import UserBadge from '../UserBadge/UserBadge';
 import './NavDrawer.scss';
 
-const NavDrawer = (props) => {
-  // console.log(props.services.noteService.getNote(1));
+const NavDrawer = ({ notes }) => {
+  console.log(notes);
   return (
     <div className='nav-drawer'>
       <div className='nav-header'>
@@ -12,7 +12,7 @@ const NavDrawer = (props) => {
         <UserBadge />
       </div>
       <button className='new-note-btn'>+ New Note</button>
-      <NoteList services={props.services} />
+      <NoteList notes={notes} />
       <NavFooter />
     </div>
   );

@@ -1,8 +1,8 @@
 import Note from '../Note/Note';
 import './NoteList.scss';
-
-const NoteList = (props) => {
-  const notes = props.services.noteService.getNotes();
+const NoteList = ({ notes }) => {
+  // const notes = services.noteService.getNotes();
+  // console.log(notes);
   console.log(notes);
 
   return (
