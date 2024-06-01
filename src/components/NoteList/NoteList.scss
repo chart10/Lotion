@@ -2,12 +2,12 @@
   overflow: scroll;
   scrollbar-color: white #2a2a2a;
   scrollbar-width: thin;
-  // -ms-overflow-style: none; /* IE and Edge */
-  // scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-// .note-list::-webkit-scrollbar {
-//   display: none;
-// }
+.note-list::-webkit-scrollbar {
+  display: none;
+}

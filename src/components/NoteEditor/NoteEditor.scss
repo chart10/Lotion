@@ -26,15 +26,15 @@
   white-space: pre-wrap;
   line-height: 1.5rem;
   overflow: scroll;
-  scrollbar-color: white #2a2a2a;
-  scrollbar-width: thin;
-  // -ms-overflow-style: none; /* IE and Edge */
-  // scrollbar-width: none; /* Firefox */
+  // scrollbar-color: white #2a2a2a;
+  // scrollbar-width: thin;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   margin: 1rem 0;
 }
-// .note-text::-webkit-scrollbar {
-//   display: none;
-// }
+.note-text::-webkit-scrollbar {
+  display: none;
+}
 .btn-container {
   display: flex;
   justify-content: right;
