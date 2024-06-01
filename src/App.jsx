@@ -7,7 +7,7 @@ import { stockNotes } from './utils/stockNotes';
 function App() {
   useEffect(() => {
     stockNotes.forEach((item) => services.noteService.createNote(item));
-    console.log('Stock notes inserted');
+    // console.log('Stock notes inserted');
   }, []);
   const notes = services.noteService.getNotes();
   const [currentNote, setCurrentNote] = useState(notes[0]);

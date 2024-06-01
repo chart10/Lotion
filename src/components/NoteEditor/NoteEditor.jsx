@@ -1,7 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './NoteEditor.scss';
 
 const NoteEditor = ({ services, currentNote }) => {
+  const [editingTitle, setEditingTitle] = useState(false);
+  const [editingText, setEditingText] = useState(false);
+  const [titleValue, setTitleValue] = useState(currentNote.title);
+  const [textValue, setTextValue] = useState(currentNote.text);
+
+  useEffect(() => {
+    setTitleValue(currentNote.title);
+    setTextValue(currentNote.text);
+  }, [currentNote]);
   // Test the updateNote service
   const newNote = {
     id: 5,
@@ -11,26 +20,57 @@ const NoteEditor = ({ services, currentNote }) => {
   const handleEnterKey = (event) => {
     if (event.key === 'Enter') {
       setEditingTitle(false);
+      // setEditingText(false);
+      // Should Enter close text input for note text?
+      // User will need enterKey functionality to format input
     }
   };
+  const handleTitleChange = (event) => {
+    setTitleValue(event.target.value);
+    console.log('Title value changed: ' + titleValue);
+  };
+  const handleTextChange = (event) => {
+    setTextValue(event.target.value);
+    console.log('Text value changed');
+  };
 
-  const [editingTitle, setEditingTitle] = useState(false);
+  // TODO: handleTextChange
+  // TODO: handleBlur - Use noteService to update current note
+  // TODO: Consider turning input fields into new component
+  // TODO: Save btn is redundant, remove when onblur is fully functional
+
   return (
     <div className='note-editor'>
       {editingTitle ? (
         <input
-          onKeyDown={handleEnterKey}
           className='note-title-input'
           type='text'
           defaultValue={currentNote.title}
+          autoFocus
+          onChange={handleTitleChange}
+          onKeyDown={handleEnterKey}
+          onBlur={() => setEditingTitle(false)}
         />
       ) : (
         <h1 className='note-title' onClick={() => setEditingTitle(true)}>
           {currentNote.title}
         </h1>
       )}
+      {editingText ? (
+        <input
+          className='note-text-input'
+          type='text'
+          defaultValue={currentNote.text}
+          autoFocus
+          onChange={handleTextChange}
+          onBlur={() => setEditingText(false)}
+        />
+      ) : (
+        <p className='note-text' onClick={() => setEditingText(true)}>
+          {currentNote.text}
+        </p>
+      )}
 
-      <p className='note-text'>{currentNote.text}</p>
       <div className='btn-container'>
         <button
           className='btn save-btn'
