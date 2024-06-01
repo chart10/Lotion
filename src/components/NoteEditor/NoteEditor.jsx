@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './NoteEditor.scss';
 
-const NoteEditor = ({ services, currentNote }) => {
+const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
   const [editingTitle, setEditingTitle] = useState(false);
   const [editingText, setEditingText] = useState(false);
   const [titleValue, setTitleValue] = useState(currentNote.title);
@@ -33,8 +33,14 @@ const NoteEditor = ({ services, currentNote }) => {
     setTextValue(event.target.value);
     console.log('Text value changed');
   };
+  const handleInputBlur = () => {
+    setCurrentNote({ id: currentNote.id, title: titleValue, text: textValue });
+    console.log(currentNote);
+    // services.noteService.updateNote(currentNote);
+    setEditingTitle(false);
+    // setEditingText(false);
+  };
 
-  // TODO: handleTextChange
   // TODO: handleBlur - Use noteService to update current note
   // TODO: Consider turning input fields into new component
   // TODO: Save btn is redundant, remove when onblur is fully functional
@@ -49,7 +55,7 @@ const NoteEditor = ({ services, currentNote }) => {
           autoFocus
           onChange={handleTitleChange}
           onKeyDown={handleEnterKey}
-          onBlur={() => setEditingTitle(false)}
+          onBlur={handleInputBlur}
         />
       ) : (
         <h1 className='note-title' onClick={() => setEditingTitle(true)}>
@@ -57,13 +63,12 @@ const NoteEditor = ({ services, currentNote }) => {
         </h1>
       )}
       {editingText ? (
-        <input
+        <textarea
           className='note-text-input'
-          type='text'
           defaultValue={currentNote.text}
           autoFocus
           onChange={handleTextChange}
-          onBlur={() => setEditingText(false)}
+          onBlur={handleInputBlur}
         />
       ) : (
         <p className='note-text' onClick={() => setEditingText(true)}>
