@@ -6,6 +6,7 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
   const [editingText, setEditingText] = useState(false);
   const [titleValue, setTitleValue] = useState(currentNote.title);
   const [textValue, setTextValue] = useState(currentNote.text);
+  console.log('titleValue: ' + titleValue);
 
   useEffect(() => {
     setTitleValue(currentNote.title);
@@ -38,7 +39,7 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
     console.log(currentNote);
     // services.noteService.updateNote(currentNote);
     setEditingTitle(false);
-    // setEditingText(false);
+    setEditingText(false);
   };
 
   // TODO: handleBlur - Use noteService to update current note
@@ -51,7 +52,7 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
         <input
           className='note-title-input'
           type='text'
-          defaultValue={currentNote.title}
+          defaultValue={titleValue}
           autoFocus
           onChange={handleTitleChange}
           onKeyDown={handleEnterKey}
@@ -68,7 +69,7 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
           defaultValue={currentNote.text}
           autoFocus
           onChange={handleTextChange}
-          onBlur={handleInputBlur}
+          // onBlur={handleInputBlur}
         />
       ) : (
         <p className='note-text' onClick={() => setEditingText(true)}>
@@ -79,7 +80,8 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
       <div className='btn-container'>
         <button
           className='btn save-btn'
-          onClick={() => services.noteService.updateNote(newNote)}
+          // onClick={() => services.noteService.updateNote(newNote)}
+          onClick={handleInputBlur}
         >
           Save
         </button>
