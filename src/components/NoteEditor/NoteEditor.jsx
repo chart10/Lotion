@@ -49,10 +49,10 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
   return (
     <div className='note-editor'>
       {editingTitle ? (
-        <input
+        <textarea
           className='note-title-input'
-          type='text'
           defaultValue={titleValue}
+          rows={1}
           autoFocus
           onChange={handleTitleChange}
           onKeyDown={handleEnterKey}
@@ -69,7 +69,7 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
           defaultValue={currentNote.text}
           autoFocus
           onChange={handleTextChange}
-          // onBlur={handleInputBlur}
+          onBlur={handleInputBlur}
         />
       ) : (
         <p className='note-text' onClick={() => setEditingText(true)}>
@@ -80,8 +80,7 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
       <div className='btn-container'>
         <button
           className='btn save-btn'
-          // onClick={() => services.noteService.updateNote(newNote)}
-          onClick={handleInputBlur}
+          onClick={() => services.noteService.updateNote(newNote)}
         >
           Save
         </button>
