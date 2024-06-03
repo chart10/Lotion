@@ -17,10 +17,17 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
     }
   };
   const handleTitleChange = (event) => {
-    setCurrentNote({
-      ...currentNote,
-      title: event.target.value,
-    });
+    let titleValue = event.target.value;
+    titleValue = titleValue.trim();
+    titleValue !== ''
+      ? setCurrentNote({
+          ...currentNote,
+          title: titleValue,
+        })
+      : setCurrentNote({
+          ...currentNote,
+          title: 'Untitled Note',
+        });
   };
   const handleTextChange = (event) => {
     setCurrentNote({
