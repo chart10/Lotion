@@ -5,7 +5,7 @@ const Note = ({ note, currentNote, setCurrentNote }) => {
       className={note.id === currentNote.id ? 'note current-note' : 'note'}
       onClick={() => setCurrentNote(note)}
     >
-      {note.title}
+      {note.id === currentNote.id ? currentNote.title : note.title}
     </div>
   );
 };

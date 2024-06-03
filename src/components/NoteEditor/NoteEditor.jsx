@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './NoteEditor.scss';
 
 const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
@@ -42,8 +42,10 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
   return (
     <div className='note-editor'>
       {editingTitle ? (
-        <textarea
+        <input
           className='note-title-input'
+          type='text'
+          maxLength={120}
           defaultValue={currentNote.title}
           rows={1}
           autoFocus
