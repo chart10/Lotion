@@ -65,6 +65,7 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
       {editingText ? (
         <textarea
           className='note-text-input'
+          maxLength={3500}
           defaultValue={currentNote.text}
           autoFocus
           onChange={handleTextChange}
