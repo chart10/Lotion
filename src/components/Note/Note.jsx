@@ -1,9 +1,14 @@
 import './Note.scss';
-const Note = ({ note, currentNote, setCurrentNote }) => {
+const Note = ({ services, note, currentNote, setCurrentNote }) => {
+  const handleNoteClick = () => {
+    services.noteService.updateNote(currentNote);
+    setCurrentNote(note);
+  };
+
   return (
     <div
       className={note.id === currentNote.id ? 'note current-note' : 'note'}
-      onClick={() => setCurrentNote(note)}
+      onClick={handleNoteClick}
     >
       <span className='item-title'>
         {note.id === currentNote.id ? currentNote.title : note.title}

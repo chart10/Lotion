@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       <NavDrawer
+        services={services}
         notes={notes}
         currentNote={currentNote}
         setCurrentNote={setCurrentNote}
