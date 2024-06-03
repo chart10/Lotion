@@ -8,15 +8,21 @@
 }
 
 .note-title {
+  height: 45px;
   max-width: 100%;
   padding: 1rem 6px;
+  border: 1px solid transparent;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
 }
+// .note-title:focus {
+//   border: 1px red;
+// }
 
 .note-title-input {
+  outline-width: 0px;
   height: 45px;
   margin: 10px 0;
   padding: 5px 5px 3px 5px;
