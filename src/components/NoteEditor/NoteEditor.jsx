@@ -4,14 +4,7 @@ import './NoteEditor.scss';
 const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
   const [editingTitle, setEditingTitle] = useState(false);
   const [editingText, setEditingText] = useState(false);
-  const [titleValue, setTitleValue] = useState(currentNote.title);
-  const [textValue, setTextValue] = useState(currentNote.text);
-  console.log('titleValue: ' + titleValue);
 
-  useEffect(() => {
-    setTitleValue(currentNote.title);
-    setTextValue(currentNote.text);
-  }, [currentNote]);
   // Test the updateNote service
   const newNote = {
     id: 5,
@@ -20,24 +13,24 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
   };
   const handleEnterKey = (event) => {
     if (event.key === 'Enter') {
-      setEditingTitle(false);
-      // setEditingText(false);
-      // Should Enter close text input for note text?
-      // User will need enterKey functionality to format input
+      handleInputBlur();
     }
   };
   const handleTitleChange = (event) => {
-    setTitleValue(event.target.value);
-    console.log('Title value changed: ' + titleValue);
+    setCurrentNote({
+      ...currentNote,
+      title: event.target.value,
+    });
   };
   const handleTextChange = (event) => {
-    setTextValue(event.target.value);
-    console.log('Text value changed');
+    setCurrentNote({
+      ...currentNote,
+      text: event.target.value,
+    });
   };
   const handleInputBlur = () => {
-    setCurrentNote({ id: currentNote.id, title: titleValue, text: textValue });
+    services.noteService.updateNote(currentNote);
     console.log(currentNote);
-    // services.noteService.updateNote(currentNote);
     setEditingTitle(false);
     setEditingText(false);
   };
@@ -51,7 +44,7 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
       {editingTitle ? (
         <textarea
           className='note-title-input'
-          defaultValue={titleValue}
+          defaultValue={currentNote.title}
           rows={1}
           autoFocus
           onChange={handleTitleChange}
