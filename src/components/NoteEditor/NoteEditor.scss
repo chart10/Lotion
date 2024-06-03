@@ -8,11 +8,15 @@
 }
 
 .note-title {
+  max-width: 100%;
   padding: 1rem 6px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 100%;
+  cursor: pointer;
+}
+.note-title:hover {
+  display: block;
 }
 .note-title-input {
   background-color: black;
@@ -30,17 +34,18 @@
 }
 
 .note-text {
-  white-space: pre-wrap;
+  padding: 1rem 6px 0 6px;
+  margin: 0 0 1rem 0;
+  border-top: 1px solid #2a2a2a;
   font-size: 14px;
   line-height: 1.5rem;
+  white-space: pre-wrap;
   overflow: scroll;
   // scrollbar-color: white #2a2a2a;
   // scrollbar-width: thin;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  border-top: 1px solid #2a2a2a;
-  padding: 1rem 6px 0 6px;
-  margin: 0 0 1rem 0;
+  cursor: pointer;
 }
 .note-text-input {
   background-color: black;

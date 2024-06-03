@@ -1,7 +1,8 @@
 .note {
+  padding: 5px;
   border-radius: 2px;
   text-overflow: ellipsis;
-  padding: 5px;
+  cursor: pointer;
 }
 
 .current-note {

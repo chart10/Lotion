@@ -54,7 +54,11 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
           onBlur={handleInputBlur}
         />
       ) : (
-        <h1 className='note-title' onClick={() => setEditingTitle(true)}>
+        <h1
+          className='note-title'
+          title={currentNote.title}
+          onClick={() => setEditingTitle(true)}
+        >
           {currentNote.title}
         </h1>
       )}
