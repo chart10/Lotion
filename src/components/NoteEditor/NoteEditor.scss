@@ -1,8 +1,8 @@
 .note-editor {
-  margin: 20px 60px;
   max-height: 93vh;
   min-width: 400px;
   max-width: 75vw;
+  margin: 20px 60px;
   display: flex;
   flex-direction: column;
 }
@@ -15,27 +15,24 @@
   text-overflow: ellipsis;
   cursor: pointer;
 }
-.note-title:hover {
-  display: block;
-}
+
 .note-title-input {
-  background-color: black;
   height: 45px;
+  margin: 10px 0;
+  padding: 5px 5px 3px 5px;
+  border: 1px solid white;
+  border-radius: 2px;
+  background-color: black;
   color: white;
   font-family: 'Merriweather', serif;
   font-size: 2em;
   font-weight: bold;
   letter-spacing: 1.5px;
-  // font-weight: 300;
-  border: 1px solid white;
-  border-radius: 2px;
-  padding: 5px 5px 3px 5px;
-  margin: 10px 0;
 }
 
 .note-text {
-  padding: 1rem 6px 0 6px;
   margin: 0 0 1rem 0;
+  padding: 1rem 6px 0 6px;
   border-top: 1px solid #2a2a2a;
   font-size: 14px;
   line-height: 1.5rem;
@@ -48,21 +45,21 @@
   cursor: pointer;
 }
 .note-text-input {
-  background-color: black;
   height: 100%;
+  padding: 1rem 5px;
+  margin-bottom: 1rem;
+  background-color: black;
+  border-radius: 2px;
   color: white;
   font-family: 'Merriweather', serif;
   font-size: 14px;
-  letter-spacing: 1.5px;
   font-weight: 300;
-  white-space: pre-wrap;
+  letter-spacing: 1.5px;
   line-height: 1.5rem;
-  border-radius: 2px;
+  white-space: pre-wrap;
   overflow: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  padding: 1rem 5px;
-  margin-bottom: 1rem;
 }
 
 .note-text::-webkit-scrollbar {

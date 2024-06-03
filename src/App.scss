@@ -2,9 +2,8 @@ html {
   background-color: black;
   color: white;
   font-family: 'Merriweather', serif;
-  letter-spacing: 1.5px;
   font-weight: 300;
-  // overscroll-behavior-y: none;
+  letter-spacing: 1.5px;
 }
 #root {
   height: 93vh;
@@ -22,13 +21,13 @@ html {
 }
 
 .btn {
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 2px;
   background-color: black;
   color: white;
   font-family: 'Merriweather', serif;
-  letter-spacing: 1.5px;
   font-weight: 300;
-  border: 1px solid white;
-  border-radius: 2px;
-  padding: 5px;
+  letter-spacing: 1.5px;
   cursor: pointer;
 }
