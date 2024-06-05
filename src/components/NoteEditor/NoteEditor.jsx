@@ -57,8 +57,13 @@ const NoteEditor = ({
       ...currentNote,
       text: textValue,
     });
-
-    console.log(currentNote);
+    const newNotes = [...notes];
+    // ToDo rename this to something sensible
+    const indexOfExistingNoteInNotes = newNotes.findIndex(
+      (note) => note.id === currentNote.id
+    );
+    newNotes[indexOfExistingNoteInNotes].text = textValue;
+    setNotes(newNotes);
     setEditingText(false);
   };
 
