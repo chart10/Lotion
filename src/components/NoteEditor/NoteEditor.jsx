@@ -86,13 +86,16 @@ const NoteEditor = ({
         <textarea
           className='note-text-input'
           maxLength={3500}
+          placeholder='Your text goes here...'
           defaultValue={currentNote.text}
           autoFocus
           onBlur={handleTextBlur}
         />
       ) : (
         <p className='note-text' onClick={() => setEditingText(true)}>
-          {currentNote.text}
+          {currentNote['text'] === ''
+            ? 'Your text goes here...'
+            : currentNote.text}
         </p>
       )}
 
