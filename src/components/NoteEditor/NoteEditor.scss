@@ -68,6 +68,9 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.unedited {
+  color: grey;
+}
 
 .note-text::-webkit-scrollbar {
   display: none;

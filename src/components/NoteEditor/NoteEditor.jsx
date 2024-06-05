@@ -46,11 +46,17 @@ const NoteEditor = ({
   };
 
   const handleTextBlur = (event) => {
+    let textValue = event.target.value;
+    textValue = textValue.trim();
+    textValue = textValue !== '' ? textValue : 'Write your text here...';
     setCurrentNote({
       ...currentNote,
-      text: event.target.value,
+      text: textValue,
     });
-    services.noteService.updateNote(currentNote);
+    services.noteService.updateNote({
+      ...currentNote,
+      text: textValue,
+    });
 
     console.log(currentNote);
     setEditingText(false);
@@ -67,7 +73,9 @@ const NoteEditor = ({
           className='note-title-input'
           type='text'
           maxLength={120}
-          defaultValue={currentNote.title}
+          defaultValue={
+            currentNote.title === 'Untitled Note' ? '' : currentNote.title
+          }
           rows={1}
           autoFocus
           onKeyDown={handleEnterKey}
@@ -75,7 +83,11 @@ const NoteEditor = ({
         />
       ) : (
         <h1
-          className='note-title'
+          className={
+            currentNote.title === 'Untitled Note'
+              ? 'note-title unedited'
+              : 'note-title'
+          }
           title={currentNote.title}
           onClick={() => setEditingTitle(true)}
         >
@@ -86,16 +98,25 @@ const NoteEditor = ({
         <textarea
           className='note-text-input'
           maxLength={3500}
-          placeholder='Your text goes here...'
-          defaultValue={currentNote.text}
+          placeholder='Write your text here...'
+          defaultValue={
+            currentNote.text === 'Write your text here...'
+              ? ''
+              : currentNote.text
+          }
           autoFocus
           onBlur={handleTextBlur}
         />
       ) : (
-        <p className='note-text' onClick={() => setEditingText(true)}>
-          {currentNote['text'] === ''
-            ? 'Your text goes here...'
-            : currentNote.text}
+        <p
+          className={
+            currentNote.text === 'Write your text here...'
+              ? 'note-text unedited'
+              : 'note-text'
+          }
+          onClick={() => setEditingText(true)}
+        >
+          {currentNote.text}
         </p>
       )}
 

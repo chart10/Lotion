@@ -1,7 +1,9 @@
 .nav-footer {
+  margin-top: auto;
   display: flex;
   flex-direction: row;
   gap: 20px;
+  align-self: flex-end;
 }
 
 a {
