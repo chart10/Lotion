@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import './NoteEditor.scss';
 
-const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
+const NoteEditor = ({
+  services,
+  notes,
+  setNotes,
+  currentNote,
+  setCurrentNote,
+}) => {
   const [editingTitle, setEditingTitle] = useState(false);
   const [editingText, setEditingText] = useState(false);
 
@@ -13,32 +19,40 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
   };
   const handleEnterKey = (event) => {
     if (event.key === 'Enter') {
-      handleInputBlur();
+      handleTitleBlur(event);
     }
   };
-  const handleTitleChange = (event) => {
+
+  const handleTitleBlur = (event) => {
     let titleValue = event.target.value;
     titleValue = titleValue.trim();
-    titleValue !== ''
-      ? setCurrentNote({
-          ...currentNote,
-          title: titleValue,
-        })
-      : setCurrentNote({
-          ...currentNote,
-          title: 'Untitled Note',
-        });
+    titleValue = titleValue !== '' ? titleValue : 'Untitled Note';
+    setCurrentNote({
+      ...currentNote,
+      title: titleValue,
+    });
+    services.noteService.updateNote({
+      ...currentNote,
+      title: titleValue,
+    });
+    const newNotes = [...notes];
+    // ToDo rename this to something sensible
+    const indexOfExistingNoteInNotes = newNotes.findIndex(
+      (note) => note.id === currentNote.id
+    );
+    newNotes[indexOfExistingNoteInNotes].title = titleValue;
+    setNotes(newNotes);
+    setEditingTitle(false);
   };
-  const handleTextChange = (event) => {
+
+  const handleTextBlur = (event) => {
     setCurrentNote({
       ...currentNote,
       text: event.target.value,
     });
-  };
-  const handleInputBlur = () => {
     services.noteService.updateNote(currentNote);
+
     console.log(currentNote);
-    setEditingTitle(false);
     setEditingText(false);
   };
 
@@ -56,9 +70,8 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
           defaultValue={currentNote.title}
           rows={1}
           autoFocus
-          onChange={handleTitleChange}
           onKeyDown={handleEnterKey}
-          onBlur={handleInputBlur}
+          onBlur={handleTitleBlur}
         />
       ) : (
         <h1
@@ -75,8 +88,7 @@ const NoteEditor = ({ services, currentNote, setCurrentNote }) => {
           maxLength={3500}
           defaultValue={currentNote.text}
           autoFocus
-          onChange={handleTextChange}
-          onBlur={handleInputBlur}
+          onBlur={handleTextBlur}
         />
       ) : (
         <p className='note-text' onClick={() => setEditingText(true)}>

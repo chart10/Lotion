@@ -2,28 +2,44 @@ export default class NoteService {
   nextId;
   constructor() {
     this.nextId = 1;
+
+    localStorage.clear();
+    localStorage.setItem('noteIds', '[]');
   }
+
   getNotes() {
     let notes = [];
-    let currentId = 1;
-    while (currentId < localStorage.length) {
-      const note = JSON.parse(localStorage.getItem(`note.${currentId}`));
+    let noteIds = this.getNoteIds();
+    for (let id of noteIds) {
+      const note = JSON.parse(localStorage.getItem(`note.${id}`));
       if (note) notes.push(note);
-      currentId = currentId + 1;
     }
     return notes;
   }
+
   getNote(noteId) {
     return JSON.parse(localStorage.getItem(`note.${noteId}`));
   }
+
+  getNoteIds() {
+    return JSON.parse(localStorage.getItem(`noteIds`));
+  }
+
   createNote(note) {
     const id = this.nextId;
     this.nextId = this.nextId + 1;
     note.id = id;
+    this.addIdToNoteIds(id);
     localStorage.setItem(`note.${note.id}`, JSON.stringify(note));
     return note.id;
   }
-  // UpdateNote Function
+
+  addIdToNoteIds(id) {
+    let noteIds = this.getNoteIds();
+    noteIds.push(id);
+    localStorage.setItem('noteIds', JSON.stringify(noteIds));
+  }
+
   updateNote(newNote) {
     localStorage.setItem(`note.${newNote.id}`, JSON.stringify(newNote));
     console.log('Note updated');
