@@ -53,6 +53,7 @@ const NoteEditor = ({
       ...currentNote,
       text: textValue,
     });
+
     services.noteService.updateNote({
       ...currentNote,
       text: textValue,

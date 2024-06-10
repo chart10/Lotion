@@ -41,10 +41,14 @@ export default class NoteService {
   }
 
   updateNote(newNote) {
+    console.log(`update note: note.${newNote.id}`);
     localStorage.setItem(`note.${newNote.id}`, JSON.stringify(newNote));
-    console.log('Note updated');
     return 'success';
   }
 
-  // DeleteNote Function
+  deleteNote(noteId) {
+    console.log(`deleting note.${noteId}`);
+    localStorage.removeItem(`note.${noteId}`);
+    return 'success';
+  }
 }

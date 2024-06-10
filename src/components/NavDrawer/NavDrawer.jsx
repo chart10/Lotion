@@ -27,6 +27,7 @@ const NavDrawer = ({
       <NoteList
         services={services}
         notes={notes}
+        setNotes={setNotes}
         currentNote={currentNote}
         setCurrentNote={setCurrentNote}
       />

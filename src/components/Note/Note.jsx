@@ -5,15 +5,28 @@ const Note = ({ services, note, currentNote, setCurrentNote }) => {
     setCurrentNote(note);
   };
 
+  const handleDeleteNote = (noteId) => {
+    services.noteService.deleteNote(noteId);
+  };
+
   return (
-    <div
-      className={note.id === currentNote.id ? 'note current-note' : 'note'}
-      onClick={handleNoteClick}
-    >
-      <div className='note-label'>
-        {note.id === currentNote.id ? currentNote.title : note.title}
+    <div className='note-card'>
+      <div
+        className={
+          note.id === currentNote.id ? 'note-label current-note' : 'note-label'
+        }
+        onClick={handleNoteClick}
+      >
+        <span className='note-label-text'>
+          {note.id === currentNote.id ? currentNote.title : note.title}
+        </span>
       </div>
-      <button className='delete-btn btn'>-</button>
+      <button
+        className='delete-btn btn'
+        onClick={() => handleDeleteNote(note.id)}
+      >
+        -
+      </button>
     </div>
   );
 };
