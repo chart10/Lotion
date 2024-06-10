@@ -3,9 +3,9 @@
   padding: 5px;
   border: 1px solid transparent;
   border-radius: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+
   cursor: pointer;
 }
 .note:hover {
@@ -17,4 +17,17 @@
 }
 .current-note:hover {
   border: 1px solid transparent;
+}
+
+.note-label {
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.delete-btn {
+  margin-left: auto;
+  height: 100%;
+  aspect-ratio: 1/1;
 }
