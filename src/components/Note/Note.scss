@@ -3,6 +3,9 @@
   padding: 5px;
   border: 1px solid transparent;
   border-radius: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
 }
 .note:hover {
@@ -14,11 +17,4 @@
 }
 .current-note:hover {
   border: 1px solid transparent;
-}
-
-.item-title {
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

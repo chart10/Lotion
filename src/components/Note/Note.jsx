@@ -10,9 +10,7 @@ const Note = ({ services, note, currentNote, setCurrentNote }) => {
       className={note.id === currentNote.id ? 'note current-note' : 'note'}
       onClick={handleNoteClick}
     >
-      <span className='item-title'>
-        {note.id === currentNote.id ? currentNote.title : note.title}
-      </span>
+      {note.id === currentNote.id ? currentNote.title : note.title}
     </div>
   );
 };
