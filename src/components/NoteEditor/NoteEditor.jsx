@@ -3,8 +3,8 @@ import './NoteEditor.scss';
 
 const NoteEditor = ({
   services,
-  notes,
-  setNotes,
+  notesList,
+  setNotesList,
   currentNote,
   setCurrentNote,
   handleReseed,
@@ -30,13 +30,13 @@ const NoteEditor = ({
       ...currentNote,
       title: titleValue,
     });
-    const newNotes = [...notes];
+    const newNotes = [...notesList];
     // ToDo rename this to something sensible
     const indexOfExistingNoteInNotes = newNotes.findIndex(
       (note) => note.id === currentNote.id
     );
     newNotes[indexOfExistingNoteInNotes].title = titleValue;
-    setNotes(newNotes);
+    setNotesList(newNotes);
     setEditingTitle(false);
   };
 
@@ -53,13 +53,13 @@ const NoteEditor = ({
       ...currentNote,
       text: textValue,
     });
-    const newNotes = [...notes];
+    const newNotes = [...notesList];
     // ToDo rename this to something sensible
     const indexOfExistingNoteInNotes = newNotes.findIndex(
       (note) => note.id === currentNote.id
     );
     newNotes[indexOfExistingNoteInNotes].text = textValue;
-    setNotes(newNotes);
+    setNotesList(newNotes);
     setEditingText(false);
   };
 

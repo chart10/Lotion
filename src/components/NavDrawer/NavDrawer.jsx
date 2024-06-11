@@ -3,8 +3,8 @@ import './NavDrawer.scss';
 
 const NavDrawer = ({
   services,
-  notes,
-  setNotes,
+  notesList,
+  setNotesList,
   currentNote,
   setCurrentNote,
 }) => {
@@ -16,15 +16,15 @@ const NavDrawer = ({
       </div>
       <NewNoteButton
         services={services}
-        notes={notes}
-        setNotes={setNotes}
+        notesList={notesList}
+        setNotesList={setNotesList}
         currentNote={currentNote}
         setCurrentNote={setCurrentNote}
       />
       <NoteLibrary
         services={services}
-        notes={notes}
-        setNotes={setNotes}
+        notesList={notesList}
+        setNotesList={setNotesList}
         currentNote={currentNote}
         setCurrentNote={setCurrentNote}
       />

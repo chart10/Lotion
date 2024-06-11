@@ -5,12 +5,12 @@ import { stockNotes } from './utils/stockNotes';
 import './App.scss';
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notesList, setNotesList] = useState([]);
   const [currentNote, setCurrentNote] = useState({});
 
   const loadInitalState = () => {
     const initialNotes = services.noteService.getNotes();
-    setNotes(initialNotes);
+    setNotesList(initialNotes);
     setCurrentNote(initialNotes[0]);
   };
 
@@ -28,15 +28,15 @@ function App() {
     <>
       <NavDrawer
         services={services}
-        notes={notes}
-        setNotes={setNotes}
+        notesList={notesList}
+        setNotesList={setNotesList}
         currentNote={currentNote}
         setCurrentNote={setCurrentNote}
       />
       <NoteEditor
         services={services}
-        notes={notes}
-        setNotes={setNotes}
+        notesList={notesList}
+        setNotesList={setNotesList}
         currentNote={currentNote}
         setCurrentNote={setCurrentNote}
         handleReseed={handleReseed}
