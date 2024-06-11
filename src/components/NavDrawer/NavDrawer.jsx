@@ -1,7 +1,4 @@
-import NavFooter from '../NavFooter/NavFooter';
-import NewNoteButton from '../NewNoteButton/NewNoteButton';
-import NoteLibrary from '../NoteLibrary/NoteLibrary';
-import UserBadge from '../UserBadge/UserBadge';
+import { NewNoteButton, NoteLibrary, UserBadge, NavFooter } from '../index';
 import './NavDrawer.scss';
 
 const NavDrawer = ({

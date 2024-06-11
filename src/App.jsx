@@ -1,8 +1,8 @@
-import './App.scss';
 import { useEffect, useState } from 'react';
 import { NavDrawer, NoteEditor } from './components';
 import services from './services/services';
 import { stockNotes } from './utils/stockNotes';
+import './App.scss';
 
 function App() {
   const [notes, setNotes] = useState([]);

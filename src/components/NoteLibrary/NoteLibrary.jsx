@@ -1,4 +1,4 @@
-import NoteLibraryItem from '../NoteLibraryItem/NoteLibraryItem';
+import { NoteLibraryItem } from '../index';
 import './NoteLibrary.scss';
 const NoteLibrary = ({
   services,

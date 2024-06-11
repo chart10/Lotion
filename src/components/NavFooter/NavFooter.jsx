@@ -1,5 +1,5 @@
+import { FooterLink } from '../index';
 import { links } from '../../utils/links';
-import FooterLink from '../FooterLink/FooterLink';
 import './NavFooter.scss';
 
 const NavFooter = () => {

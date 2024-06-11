@@ -1,5 +1,5 @@
-import './NoteLibraryItem.scss';
 import { BsX } from 'react-icons/bs';
+import './NoteLibraryItem.scss';
 
 const NoteLibraryItem = ({ services, note, currentNote, setCurrentNote }) => {
   const handleNoteClick = () => {
