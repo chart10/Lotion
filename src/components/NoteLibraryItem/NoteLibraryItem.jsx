@@ -1,7 +1,7 @@
-import './Note.scss';
+import './NoteLibraryItem.scss';
 import { BsX } from 'react-icons/bs';
 
-const Note = ({ services, note, currentNote, setCurrentNote }) => {
+const NoteLibraryItem = ({ services, note, currentNote, setCurrentNote }) => {
   const handleNoteClick = () => {
     services.noteService.updateNote(currentNote);
     setCurrentNote(note);
@@ -12,7 +12,7 @@ const Note = ({ services, note, currentNote, setCurrentNote }) => {
   };
 
   return (
-    <div className='note-card'>
+    <div className='note-library-item'>
       <div
         className={
           note.id === currentNote.id ? 'note-label current-note' : 'note-label'
@@ -32,4 +32,4 @@ const Note = ({ services, note, currentNote, setCurrentNote }) => {
     </div>
   );
 };
-export default Note;
+export default NoteLibraryItem;

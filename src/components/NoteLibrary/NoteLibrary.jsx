@@ -1,4 +1,4 @@
-import Note from '../Note/Note';
+import NoteLibraryItem from '../NoteLibraryItem/NoteLibraryItem';
 import './NoteLibrary.scss';
 const NoteLibrary = ({
   services,
@@ -11,7 +11,7 @@ const NoteLibrary = ({
     <div className='note-library'>
       {notes.map((note) => {
         return (
-          <Note
+          <NoteLibraryItem
             key={note.id}
             services={services}
             note={note}
