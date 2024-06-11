@@ -36,7 +36,7 @@ export default class NoteService {
 
   addIdToNoteIds(id) {
     let noteIds = this.getNoteIds();
-    noteIds.push(id);
+    noteIds.unshift(id);
     localStorage.setItem('noteIds', JSON.stringify(noteIds));
   }
 

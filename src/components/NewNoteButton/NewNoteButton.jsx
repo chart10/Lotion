@@ -10,7 +10,7 @@ const NewNoteButton = ({ services, notes, setNotes, setCurrentNote }) => {
 
   const shiftCurrentNoteToTop = () => {
     const newNotes = services.noteService.getNotes();
-    newNotes.unshift(newNotes.pop());
+    // newNotes.unshift(newNotes.pop());
     // setNotes(newNotes);
     console.log(newNotes);
     setNotes(newNotes);
