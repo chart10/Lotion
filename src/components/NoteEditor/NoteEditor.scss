@@ -37,7 +37,7 @@
   letter-spacing: 1.5px;
 }
 
-.note-text {
+.note-body {
   height: 94%;
   margin: 0 0 1rem 0;
   padding: 1rem 6px 0 6px;
@@ -52,7 +52,7 @@
   scrollbar-width: none; /* Firefox */
   cursor: pointer;
 }
-.note-text-input {
+.note-body-input {
   height: 100%;
   padding: 20px 5px;
   margin-bottom: 15px;
@@ -75,7 +75,7 @@
   color: grey;
 }
 
-.note-text::-webkit-scrollbar {
+.note-body::-webkit-scrollbar {
   display: none;
 }
 .btn-container {

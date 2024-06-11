@@ -9,8 +9,8 @@ const NoteEditor = ({
   setCurrentNote,
   handleReseed,
 }) => {
-  const [editingTitle, setEditingTitle] = useState(false);
-  const [editingText, setEditingText] = useState(false);
+  const [editingNoteTitle, setEditingNoteTitle] = useState(false);
+  const [editingNoteBody, setEditingNoteBody] = useState(false);
 
   const handleEnterKey = (event) => {
     if (event.key === 'Enter') {
@@ -19,48 +19,49 @@ const NoteEditor = ({
   };
 
   const handleTitleBlur = (event) => {
-    let titleValue = event.target.value;
-    titleValue = titleValue.trim();
-    titleValue = titleValue !== '' ? titleValue : 'Untitled Note';
+    let noteTitleValue = event.target.value;
+    noteTitleValue = noteTitleValue.trim();
+    noteTitleValue = noteTitleValue !== '' ? noteTitleValue : 'Untitled Note';
     setCurrentNote({
       ...currentNote,
-      title: titleValue,
+      title: noteTitleValue,
     });
     services.noteService.updateNote({
       ...currentNote,
-      title: titleValue,
+      title: noteTitleValue,
     });
     const newNotes = [...notesList];
     // ToDo rename this to something sensible
     const indexOfExistingNoteInNotes = newNotes.findIndex(
       (note) => note.id === currentNote.id
     );
-    newNotes[indexOfExistingNoteInNotes].title = titleValue;
+    newNotes[indexOfExistingNoteInNotes].title = noteTitleValue;
     setNotesList(newNotes);
-    setEditingTitle(false);
+    setEditingNoteTitle(false);
   };
 
-  const handleTextBlur = (event) => {
-    let textValue = event.target.value;
-    textValue = textValue.trim();
-    textValue = textValue !== '' ? textValue : 'Write your text here...';
+  const handleBodyBlur = (event) => {
+    let bodyValue = event.target.value;
+    bodyValue = bodyValue.trim();
+    bodyValue =
+      bodyValue !== '' ? bodyValue : 'Write your note contents here...';
     setCurrentNote({
       ...currentNote,
-      text: textValue,
+      body: bodyValue,
     });
 
     services.noteService.updateNote({
       ...currentNote,
-      text: textValue,
+      body: bodyValue,
     });
     const newNotes = [...notesList];
     // ToDo rename this to something sensible
     const indexOfExistingNoteInNotes = newNotes.findIndex(
       (note) => note.id === currentNote.id
     );
-    newNotes[indexOfExistingNoteInNotes].text = textValue;
+    newNotes[indexOfExistingNoteInNotes].body = bodyValue;
     setNotesList(newNotes);
-    setEditingText(false);
+    setEditingNoteBody(false);
   };
 
   // TODO: handleBlur - Use noteService to update current note
@@ -69,7 +70,7 @@ const NoteEditor = ({
 
   return (
     <div className='note-editor'>
-      {editingTitle ? (
+      {editingNoteTitle ? (
         <input
           className='note-title-input'
           type='text'
@@ -90,34 +91,34 @@ const NoteEditor = ({
               : 'note-title'
           }
           title={currentNote.title}
-          onClick={() => setEditingTitle(true)}
+          onClick={() => setEditingNoteTitle(true)}
         >
           {currentNote.title}
         </h1>
       )}
-      {editingText ? (
+      {editingNoteBody ? (
         <textarea
-          className='note-text-input'
+          className='note-body-input'
           maxLength={3500}
-          placeholder='Write your text here...'
+          placeholder='Write your note contents here...'
           defaultValue={
-            currentNote.text === 'Write your text here...'
+            currentNote.body === 'Write your note contents here...'
               ? ''
-              : currentNote.text
+              : currentNote.body
           }
           autoFocus
-          onBlur={handleTextBlur}
+          onBlur={handleBodyBlur}
         />
       ) : (
         <p
           className={
-            currentNote.text === 'Write your text here...'
-              ? 'note-text unedited'
-              : 'note-text'
+            currentNote.body === 'Write your note contents here...'
+              ? 'note-body unedited'
+              : 'note-body'
           }
-          onClick={() => setEditingText(true)}
+          onClick={() => setEditingNoteBody(true)}
         >
-          {currentNote.text}
+          {currentNote.body}
         </p>
       )}
 
