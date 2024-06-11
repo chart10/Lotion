@@ -13,6 +13,7 @@ function App() {
     setNotes(initialNotes);
     setCurrentNote(initialNotes[0]);
   };
+
   useEffect(() => {
     loadInitalState();
   }, []);

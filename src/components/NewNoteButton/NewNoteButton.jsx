@@ -1,6 +1,6 @@
 import { BsPlus } from 'react-icons/bs';
 
-const NewNoteButton = ({ services, notes, setNotes, setCurrentNote }) => {
+const NewNoteButton = ({ services, setNotes, setCurrentNote }) => {
   const handleClick = () => {
     const newNote = { title: 'Untitled Note', text: 'Write your text here...' };
     const newId = services.noteService.createNote(newNote);
