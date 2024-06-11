@@ -1,6 +1,6 @@
 import NavFooter from '../NavFooter/NavFooter';
 import NewNoteButton from '../NewNoteButton/NewNoteButton';
-import NoteList from '../NoteList/NoteList';
+import NoteLibrary from '../NoteLibrary/NoteLibrary';
 import UserBadge from '../UserBadge/UserBadge';
 import './NavDrawer.scss';
 
@@ -24,7 +24,7 @@ const NavDrawer = ({
         currentNote={currentNote}
         setCurrentNote={setCurrentNote}
       />
-      <NoteList
+      <NoteLibrary
         services={services}
         notes={notes}
         setNotes={setNotes}

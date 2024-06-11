@@ -1,6 +1,6 @@
 import Note from '../Note/Note';
-import './NoteList.scss';
-const NoteList = ({
+import './NoteLibrary.scss';
+const NoteLibrary = ({
   services,
   notes,
   setNotes,
@@ -8,7 +8,7 @@ const NoteList = ({
   setCurrentNote,
 }) => {
   return (
-    <div className='note-list'>
+    <div className='note-library'>
       {notes.map((note) => {
         return (
           <Note
@@ -24,4 +24,4 @@ const NoteList = ({
     </div>
   );
 };
-export default NoteList;
+export default NoteLibrary;

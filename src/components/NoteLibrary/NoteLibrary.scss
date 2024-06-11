@@ -1,4 +1,4 @@
-.note-list {
+.note-library {
   height: 100%;
   overflow: scroll;
   scrollbar-color: white #2a2a2a;
@@ -9,6 +9,6 @@
   flex-direction: column;
   gap: 20px;
 }
-.note-list::-webkit-scrollbar {
+.note-library::-webkit-scrollbar {
   display: none;
 }
