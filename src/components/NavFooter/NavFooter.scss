@@ -1,9 +1,12 @@
 .nav-footer {
+  width: 100%;
   margin-top: auto;
-  display: flex;
-  flex-direction: row;
+  padding: 0 15px;
+  background-color: black;
   gap: 20px;
-  align-self: flex-end;
+  align-self: center;
+  display: flex;
+  justify-content: center;
 }
 
 a {
