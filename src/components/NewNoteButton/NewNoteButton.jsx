@@ -1,3 +1,5 @@
+import { BsPlus } from 'react-icons/bs';
+
 const NewNoteButton = ({ services, notes, setNotes, setCurrentNote }) => {
   const handleClick = () => {
     const newNote = { title: 'Untitled Note', text: 'Write your text here...' };
@@ -18,7 +20,7 @@ const NewNoteButton = ({ services, notes, setNotes, setCurrentNote }) => {
 
   return (
     <button className='btn new-note-btn' onClick={handleClick}>
-      + New Note
+      <BsPlus size={'1.5em'} /> New Note
     </button>
   );
 };

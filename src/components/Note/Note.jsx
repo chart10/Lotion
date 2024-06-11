@@ -1,4 +1,6 @@
 import './Note.scss';
+import { BsX } from 'react-icons/bs';
+
 const Note = ({ services, note, currentNote, setCurrentNote }) => {
   const handleNoteClick = () => {
     services.noteService.updateNote(currentNote);
@@ -25,7 +27,7 @@ const Note = ({ services, note, currentNote, setCurrentNote }) => {
         className='delete-btn btn'
         onClick={() => handleDeleteNote(note.id)}
       >
-        -
+        <BsX size={'1em'} />
       </button>
     </div>
   );
