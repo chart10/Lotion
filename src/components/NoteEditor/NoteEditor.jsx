@@ -7,16 +7,11 @@ const NoteEditor = ({
   setNotes,
   currentNote,
   setCurrentNote,
+  handleReseed,
 }) => {
   const [editingTitle, setEditingTitle] = useState(false);
   const [editingText, setEditingText] = useState(false);
 
-  // Test the updateNote service
-  const newNote = {
-    id: 5,
-    title: 'Updated Note',
-    text: 'This is an edited note!',
-  };
   const handleEnterKey = (event) => {
     if (event.key === 'Enter') {
       handleTitleBlur(event);
@@ -127,11 +122,8 @@ const NoteEditor = ({
       )}
 
       <div className='btn-container'>
-        <button
-          className='btn save-btn'
-          onClick={() => services.noteService.updateNote(newNote)}
-        >
-          Save
+        <button className='btn reseed-btn' onClick={handleReseed}>
+          Reseed Notes
         </button>
       </div>
     </div>

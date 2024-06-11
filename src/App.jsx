@@ -8,12 +8,20 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [currentNote, setCurrentNote] = useState({});
 
-  useEffect(() => {
-    stockNotes.forEach((item) => services.noteService.createNote(item));
+  const loadInitalState = () => {
     const initialNotes = services.noteService.getNotes();
     setNotes(initialNotes);
     setCurrentNote(initialNotes[0]);
+  };
+  useEffect(() => {
+    loadInitalState();
   }, []);
+
+  const handleReseed = () => {
+    services.noteService.emptyNotes();
+    stockNotes.forEach((item) => services.noteService.createNote(item));
+    loadInitalState();
+  };
 
   return (
     <>
@@ -30,6 +38,7 @@ function App() {
         setNotes={setNotes}
         currentNote={currentNote}
         setCurrentNote={setCurrentNote}
+        handleReseed={handleReseed}
       />
     </>
   );
