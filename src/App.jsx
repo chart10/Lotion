@@ -10,21 +10,33 @@ function App() {
   const [notesList, setNotesList] = useState([]);
   const [currentNote, setCurrentNote] = useState({});
 
+  // ACTIONS
   const loadInitalState = () => {
     const initialNotes = services.noteService.getNotes();
     setNotesList(initialNotes);
     setCurrentNote(initialNotes[0]);
   };
 
-  useEffect(() => {
-    loadInitalState();
-  }, []);
-
   const handleReseed = () => {
     services.noteService.emptyNotes();
     stockNotes.forEach((item) => services.noteService.createNote(item));
     loadInitalState();
   };
+
+  const saveCurrentNote = (updatedNote) => {
+    setCurrentNote(updatedNote);
+    services.noteService.updateNote(updatedNote);
+    const newNotes = [...notesList];
+    const currentNoteIndex = newNotes.findIndex(
+      (note) => note.id === currentNote.id
+    );
+    newNotes[currentNoteIndex] = updatedNote;
+    setNotesList(newNotes);
+  };
+
+  useEffect(() => {
+    loadInitalState();
+  }, []);
 
   return (
     <appContext.Provider
@@ -35,6 +47,7 @@ function App() {
         currentNote,
         setCurrentNote,
         handleReseed,
+        saveCurrentNote,
       }}
     >
       <NavDrawer />

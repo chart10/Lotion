@@ -3,14 +3,7 @@ import { useAppContext } from '../../App';
 import './NoteEditor.scss';
 
 const NoteEditor = () => {
-  const {
-    services,
-    notesList,
-    setNotesList,
-    currentNote,
-    setCurrentNote,
-    handleReseed,
-  } = useAppContext();
+  const { currentNote, handleReseed, saveCurrentNote } = useAppContext();
 
   const [editingNoteTitle, setEditingNoteTitle] = useState(false);
   const [editingNoteBody, setEditingNoteBody] = useState(false);
@@ -18,59 +11,31 @@ const NoteEditor = () => {
 
   const handleEnterKey = (event) => {
     if (event.key === 'Enter') {
-      handleTitleBlur(event);
+      handleBlur(event);
     }
   };
 
-  const handleTitleBlur = (event) => {
-    let noteTitleValue = event.target.value;
-    noteTitleValue = noteTitleValue.trim();
-    noteTitleValue = noteTitleValue !== '' ? noteTitleValue : 'Untitled Note';
-    setCurrentNote({
-      ...currentNote,
-      title: noteTitleValue,
-    });
-    services.noteService.updateNote({
-      ...currentNote,
-      title: noteTitleValue,
-    });
-    const newNotes = [...notesList];
-    // ToDo rename this to something sensible
-    const indexOfExistingNoteInNotes = newNotes.findIndex(
-      (note) => note.id === currentNote.id
-    );
-    newNotes[indexOfExistingNoteInNotes].title = noteTitleValue;
-    setNotesList(newNotes);
+  const handleBlur = (event) => {
+    let updatedNote = {};
+    let updatedValue = event.target.value;
+    updatedValue = updatedValue.trim();
+    if (event.target.className === 'note-title-input') {
+      updatedValue = updatedValue !== '' ? updatedValue : 'Untitled Note';
+      if (updatedValue !== currentNote.title) {
+        updatedNote = { ...currentNote, title: updatedValue };
+        saveCurrentNote(updatedNote);
+      }
+    } else {
+      updatedValue =
+        updatedValue !== '' ? updatedValue : 'Write your note contents here...';
+      if (updatedValue !== currentNote.body) {
+        updatedNote = { ...currentNote, body: updatedValue };
+        saveCurrentNote(updatedNote);
+      }
+    }
     setEditingNoteTitle(false);
-  };
-
-  const handleBodyBlur = (event) => {
-    let bodyValue = event.target.value;
-    bodyValue = bodyValue.trim();
-    bodyValue =
-      bodyValue !== '' ? bodyValue : 'Write your note contents here...';
-    setCurrentNote({
-      ...currentNote,
-      body: bodyValue,
-    });
-
-    services.noteService.updateNote({
-      ...currentNote,
-      body: bodyValue,
-    });
-    const newNotes = [...notesList];
-    // ToDo rename this to something sensible
-    const indexOfExistingNoteInNotes = newNotes.findIndex(
-      (note) => note.id === currentNote.id
-    );
-    newNotes[indexOfExistingNoteInNotes].body = bodyValue;
-    setNotesList(newNotes);
     setEditingNoteBody(false);
   };
-
-  // TODO: handleBlur - Use noteService to update current note
-  // TODO: Consider turning input fields into new component
-  // TODO: Save btn is redundant, remove when onblur is fully functional
 
   return (
     <div className='note-editor'>
@@ -85,7 +50,7 @@ const NoteEditor = () => {
           rows={1}
           autoFocus
           onKeyDown={handleEnterKey}
-          onBlur={handleTitleBlur}
+          onBlur={handleBlur}
         />
       ) : (
         <div className='note-title-wrapper'>
@@ -119,7 +84,7 @@ const NoteEditor = () => {
               : currentNote.body
           }
           autoFocus
-          onBlur={handleBodyBlur}
+          onBlur={handleBlur}
         />
       ) : (
         <p
