@@ -22,8 +22,6 @@ const NoteEditor = () => {
     }
   };
 
-  const handleTitleHover = () => {};
-
   const handleTitleBlur = (event) => {
     let noteTitleValue = event.target.value;
     noteTitleValue = noteTitleValue.trim();

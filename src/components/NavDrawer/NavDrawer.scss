@@ -1,10 +1,12 @@
+@use '../../assets/styles/globals.scss';
+
 .nav-drawer {
   min-width: 200px;
   max-width: 25vw;
   max-height: 93vh;
   padding: 20px;
-  border: 1px solid white;
-  border-radius: 2px;
+  border: 1px solid globals.$primary-color;
+  border-radius: globals.$border-radius;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -17,6 +19,13 @@
   justify-content: space-between;
   align-items: center;
 }
+.user-badge {
+  color: globals.$primary-color;
+  transition: all globals.$tr-speed;
+}
+.user-badge:hover {
+  color: globals.$link-color;
+}
 
 h1 {
   margin: 0;
@@ -24,19 +33,19 @@ h1 {
 
 .new-note-btn {
   padding: 5px;
-  border: 1px solid white;
-  border-radius: 2px;
-  background-color: black;
-  color: white;
+  border: 1px solid globals.$primary-color;
+  border-radius: globals.$border-radius;
+  background-color: globals.$bg-color;
+  color: globals.$primary-color;
   font-family: 'Merriweather', serif;
   letter-spacing: 1.5px;
   font-weight: 300;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s;
+  transition: all globals.$tr-speed;
 }
 .new-note-btn:hover {
-  color: black;
-  background-color: white;
+  color: globals.$bg-color;
+  background-color: globals.$primary-color;
 }

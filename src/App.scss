@@ -1,6 +1,8 @@
+@use './assets/styles/globals.scss';
+
 html {
-  background-color: black;
-  color: white;
+  background-color: globals.$bg-color;
+  color: globals.$primary-color;
   font-family: 'Merriweather', serif;
   font-weight: 300;
   letter-spacing: 1.5px;
@@ -22,10 +24,10 @@ html {
 
 .btn {
   padding: 5px;
-  border: 1px solid white;
-  border-radius: 2px;
-  background-color: black;
-  color: white;
+  border: 1px solid globals.$primary-color;
+  border-radius: globals.$border-radius;
+  background-color: globals.$bg-color;
+  color: globals.$primary-color;
   font-family: 'Merriweather', serif;
   font-weight: 300;
   letter-spacing: 1.5px;
