@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import { useAppContext } from '../../App';
 import './NoteEditor.scss';
 
-const NoteEditor = ({
-  services,
-  notesList,
-  setNotesList,
-  currentNote,
-  setCurrentNote,
-  handleReseed,
-}) => {
+const NoteEditor = () => {
+  const {
+    services,
+    notesList,
+    setNotesList,
+    currentNote,
+    setCurrentNote,
+    handleReseed,
+  } = useAppContext();
+
   const [editingNoteTitle, setEditingNoteTitle] = useState(false);
   const [editingNoteBody, setEditingNoteBody] = useState(false);
 

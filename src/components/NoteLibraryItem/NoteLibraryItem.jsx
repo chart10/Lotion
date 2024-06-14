@@ -1,7 +1,10 @@
+import { useAppContext } from '../../App';
 import { BsX } from 'react-icons/bs';
 import './NoteLibraryItem.scss';
 
-const NoteLibraryItem = ({ services, note, currentNote, setCurrentNote }) => {
+const NoteLibraryItem = ({ note }) => {
+  const { services, currentNote, setCurrentNote } = useAppContext();
+
   const handleNoteClick = () => {
     services.noteService.updateNote(currentNote);
     setCurrentNote(note);

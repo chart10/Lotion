@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createContext, useContext } from 'react';
 import { NavDrawer, NoteEditor } from './components';
 import services from './services/services';
 import { stockNotes } from './utils/stockNotes';
 import './App.scss';
+
+const appContext = createContext();
 
 function App() {
   const [notesList, setNotesList] = useState([]);
@@ -25,24 +27,21 @@ function App() {
   };
 
   return (
-    <>
-      <NavDrawer
-        services={services}
-        notesList={notesList}
-        setNotesList={setNotesList}
-        currentNote={currentNote}
-        setCurrentNote={setCurrentNote}
-      />
-      <NoteEditor
-        services={services}
-        notesList={notesList}
-        setNotesList={setNotesList}
-        currentNote={currentNote}
-        setCurrentNote={setCurrentNote}
-        handleReseed={handleReseed}
-      />
-    </>
+    <appContext.Provider
+      value={{
+        services,
+        notesList,
+        setNotesList,
+        currentNote,
+        setCurrentNote,
+        handleReseed,
+      }}
+    >
+      <NavDrawer />
+      <NoteEditor />
+    </appContext.Provider>
   );
 }
 
+export const useAppContext = () => useContext(appContext);
 export default App;
