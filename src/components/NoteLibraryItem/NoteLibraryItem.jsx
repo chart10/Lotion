@@ -39,7 +39,7 @@ const NoteLibraryItem = ({ note }) => {
         <BsX size={'1em'} />
       </button>
 
-      <button
+      <div
         className={showApproval ? 'approval-box active' : 'approval-box'}
         autoFocus
         onBlur={() => setShowApproval(false)}
@@ -49,7 +49,7 @@ const NoteLibraryItem = ({ note }) => {
           {' '}
           N&nbsp;
         </span>
-      </button>
+      </div>
     </div>
   );
 };

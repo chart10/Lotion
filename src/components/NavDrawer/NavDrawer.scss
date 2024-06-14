@@ -34,4 +34,9 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s;
+}
+.new-note-btn:hover {
+  color: black;
+  background-color: white;
 }
