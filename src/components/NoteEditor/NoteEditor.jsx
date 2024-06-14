@@ -14,12 +14,15 @@ const NoteEditor = () => {
 
   const [editingNoteTitle, setEditingNoteTitle] = useState(false);
   const [editingNoteBody, setEditingNoteBody] = useState(false);
+  const [showFullTitle, setShowFullTitle] = useState(false);
 
   const handleEnterKey = (event) => {
     if (event.key === 'Enter') {
       handleTitleBlur(event);
     }
   };
+
+  const handleTitleHover = () => {};
 
   const handleTitleBlur = (event) => {
     let noteTitleValue = event.target.value;
@@ -87,17 +90,25 @@ const NoteEditor = () => {
           onBlur={handleTitleBlur}
         />
       ) : (
-        <h1
-          className={
-            currentNote.title === 'Untitled Note'
-              ? 'note-title unedited'
-              : 'note-title'
-          }
-          title={currentNote.title}
-          onClick={() => setEditingNoteTitle(true)}
-        >
-          {currentNote.title}
-        </h1>
+        <div className='note-title-wrapper'>
+          <h1
+            className={
+              currentNote.title === 'Untitled Note'
+                ? 'note-title unedited'
+                : 'note-title'
+            }
+            onClick={() => setEditingNoteTitle(true)}
+            onMouseEnter={() => {
+              if (currentNote.title.length > 20) setShowFullTitle(true);
+            }}
+            onMouseLeave={() => setShowFullTitle(false)}
+          >
+            {currentNote.title}
+          </h1>
+          <div className={showFullTitle ? 'full-title shown' : 'full-title'}>
+            {currentNote.title}
+          </div>
+        </div>
       )}
       {editingNoteBody ? (
         <textarea
