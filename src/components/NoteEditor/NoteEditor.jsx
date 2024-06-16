@@ -56,29 +56,25 @@ const NoteEditor = () => {
         />
       ) : (
         <div className='note-title-wrapper'>
-          {currentNote && (
-            <>
-              <h1
-                className={
-                  currentNote.title !== undefined
-                    ? 'note-title unedited'
-                    : 'note-title'
-                }
-                onClick={() => setEditingNoteTitle(true)}
-                onMouseEnter={() => {
-                  if (currentNote.title.length > 20) setShowFullTitle(true);
-                }}
-                onMouseLeave={() => setShowFullTitle(false)}
-              >
-                {currentNote.title}
-              </h1>
-              <div
-                className={showFullTitle ? 'full-title shown' : 'full-title'}
-              >
-                {currentNote.title}
-              </div>
-            </>
-          )}
+          <>
+            <h1
+              className={
+                currentNote.title === 'Untitled Note'
+                  ? 'note-title unedited'
+                  : 'note-title'
+              }
+              onClick={() => setEditingNoteTitle(true)}
+              onMouseEnter={() => {
+                if (currentNote.title.length > 20) setShowFullTitle(true);
+              }}
+              onMouseLeave={() => setShowFullTitle(false)}
+            >
+              {currentNote.title}
+            </h1>
+            <div className={showFullTitle ? 'full-title shown' : 'full-title'}>
+              {currentNote.title}
+            </div>
+          </>
         </div>
       )}
       {editingNoteBody ? (
