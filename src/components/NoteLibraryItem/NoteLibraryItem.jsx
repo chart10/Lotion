@@ -13,6 +13,7 @@ const NoteLibraryItem = ({ note }) => {
   };
 
   const [showApproval, setShowApproval] = useState(false);
+  const [showFullItemTitle, setShowFullItemTitle] = useState(false);
 
   const handleConfirmDelete = (noteId) => {
     deleteSelectedNote(noteId);
@@ -28,6 +29,10 @@ const NoteLibraryItem = ({ note }) => {
           note.id === currentNote.id ? 'note-label current-note' : 'note-label'
         }
         onClick={handleNoteClick}
+        onMouseEnter={() => {
+          if (note.title.length > 15) setShowFullItemTitle(true);
+        }}
+        onMouseLeave={() => setShowFullItemTitle(false)}
       >
         <span className='note-label-text'>
           {note.id === currentNote.id ? currentNote.title : note.title}
@@ -39,7 +44,13 @@ const NoteLibraryItem = ({ note }) => {
       >
         <BsX size={'1em'} />
       </button>
-
+      <div
+        className={
+          showFullItemTitle ? 'full-item-title shown' : 'full-item-title'
+        }
+      >
+        {note.title}
+      </div>
       <div
         className={showApproval ? 'approval-box active' : 'approval-box'}
         autoFocus

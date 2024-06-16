@@ -59,6 +59,26 @@
   // transition: all globals.$tr-speed;
 }
 
+.full-item-title {
+  padding: 5px;
+  border-radius: globals.$border-radius;
+  position: absolute;
+  top: 100%;
+  // right: 0;
+  z-index: 1;
+  color: globals.$primary-color;
+  border: 1px solid globals.$primary-color;
+  background-color: globals.$bg-color;
+  visibility: hidden;
+  opacity: 0;
+  transition: all globals.$tr-speed 0s;
+}
+.full-item-title.shown {
+  visibility: visible;
+  opacity: 1;
+  transition: all globals.$tr-speed 0.5s;
+}
+
 .approval-box {
   padding: 5px;
   border-radius: globals.$border-radius;
