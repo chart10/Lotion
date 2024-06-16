@@ -4,7 +4,8 @@ import './NoteLibraryItem.scss';
 import { useState } from 'react';
 
 const NoteLibraryItem = ({ note }) => {
-  const { services, currentNote, setCurrentNote } = useAppContext();
+  const { services, currentNote, setCurrentNote, deleteSelectedNote } =
+    useAppContext();
 
   const handleNoteClick = () => {
     services.noteService.updateNote(currentNote);
@@ -13,8 +14,8 @@ const NoteLibraryItem = ({ note }) => {
 
   const [showApproval, setShowApproval] = useState(false);
 
-  const handleDeleteNote = (noteId) => {
-    services.noteService.deleteNote(noteId);
+  const handleConfirmDelete = (noteId) => {
+    deleteSelectedNote(noteId);
   };
   const handleClickDelete = () => {
     setShowApproval(!showApproval);
@@ -44,10 +45,15 @@ const NoteLibraryItem = ({ note }) => {
         autoFocus
         onBlur={() => setShowApproval(false)}
       >
-        Delete?<span className='yes'> Y </span>/
+        Delete?
+        <span className='yes' onClick={() => handleConfirmDelete(note.id)}>
+          {' '}
+          Y{' '}
+        </span>
+        /
         <span className='no' onClick={() => setShowApproval(false)}>
           {' '}
-          N&nbsp;
+          N
         </span>
       </div>
     </div>

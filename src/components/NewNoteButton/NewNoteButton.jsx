@@ -2,26 +2,14 @@ import { useAppContext } from '../../App';
 import { BsPlus } from 'react-icons/bs';
 
 const NewNoteButton = () => {
-  const { services, setNotesList, setCurrentNote } = useAppContext();
+  const { createNewNote } = useAppContext();
 
   const handleClick = () => {
-    const newNote = { title: 'Untitled Note', text: 'Write your text here...' };
-    // ACTION   Create newNote in backend
-    //          Set currentNote to newNote
-    //          Update NoteList with updated backend data
-    const newId = services.noteService.createNote(newNote);
-    console.log(newId);
-    setCurrentNote({ ...newNote, id: newId });
-    // setNotes(services.noteService.getNotes());
-    shiftCurrentNoteToTop();
-  };
-
-  const shiftCurrentNoteToTop = () => {
-    const newNotes = services.noteService.getNotes();
-    // newNotes.unshift(newNotes.pop());
-    // setNotes(newNotes);
-    console.log(newNotes);
-    setNotesList(newNotes);
+    const newNote = {
+      title: 'Untitled Note',
+      text: 'Write your note contents here...',
+    };
+    createNewNote(newNote);
   };
 
   return (

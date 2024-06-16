@@ -41,6 +41,12 @@ function App() {
     setNotesList(newNotesList);
   };
 
+  const deleteSelectedNote = (selectedNoteId) => {
+    services.noteService.deleteNote(selectedNoteId);
+    const newNoteList = notesList.filter((note) => note.id !== selectedNoteId);
+    setNotesList(newNoteList);
+  };
+
   useEffect(() => {
     loadInitalState();
   }, []);
@@ -56,6 +62,7 @@ function App() {
         handleReseed,
         saveCurrentNote,
         createNewNote,
+        deleteSelectedNote,
       }}
     >
       <NavDrawer />
