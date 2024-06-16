@@ -1,19 +1,12 @@
 import { colorPaletteOptions } from '../../utils/colorPalettes';
-import '../../assets/styles/globals.scss';
+import '../NavDrawer/NavDrawer.scss';
 
-const ColorChoice = ({
-  color,
-  colorPalette,
-  setColorPalette,
-  backgroundColor,
-}) => {
-  const handleClick = (newColor) => {
-    // setColorPalette{color}
-    return;
-  };
-
+const ColorChoice = ({ color, setColorPalette }) => {
   return (
-    <div className={`color-choice ${color}`} onClick={backgroundColor}></div>
+    <div
+      className={`color-choice ${color}`}
+      onClick={() => setColorPalette(colorPaletteOptions[color])}
+    ></div>
   );
 };
 export default ColorChoice;

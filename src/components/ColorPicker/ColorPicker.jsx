@@ -1,11 +1,38 @@
 // import './ColorPicker.scss';
 import '../../assets/styles/globals.scss';
 import { ColorChoice } from '../index';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { colorPaletteOptions } from '../../utils/colorPalettes';
 
 const ColorPicker = () => {
   const [colorPalette, setColorPalette] = useState(colorPaletteOptions.default);
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--background-color',
+      colorPalette.bgcolor
+    );
+    document.documentElement.style.setProperty(
+      '--primary-color',
+      colorPalette.primarycolor
+    );
+    document.documentElement.style.setProperty(
+      '--secondary-color',
+      colorPalette.secondarycolor
+    );
+    document.documentElement.style.setProperty(
+      '--link-color',
+      colorPalette.linkcolor
+    );
+    document.documentElement.style.setProperty(
+      '--highlight-color',
+      colorPalette.highlightcolor
+    );
+    document.documentElement.style.setProperty(
+      '--caution-color',
+      colorPalette.cautioncolor
+    );
+    console.log(colorPalette);
+  }, [colorPalette]);
 
   return (
     <div className='color-picker'>
@@ -29,8 +56,6 @@ const ColorPicker = () => {
         colorPalette={colorPalette}
         setColorPalette={setColorPalette}
       />
-      {/* <ColorChoice color='blue' />
-      <ColorChoice color='purple' /> */}
     </div>
   );
 };

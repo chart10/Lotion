@@ -6,6 +6,7 @@ html {
   font-family: 'Merriweather', serif;
   font-weight: 300;
   letter-spacing: 1.5px;
+  transition: all globals.$tr-speed;
 }
 #root {
   height: 93vh;
