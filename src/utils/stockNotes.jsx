@@ -33,6 +33,6 @@ Overall, "Paper Mario: The Thousand-Year Door" excels in every aspect of game de
   },
   {
     title: 'Favorite Things',
-    body: "Raindrops on roses\nWhiskers on kittens\nBright copper kettles\nWarm woolen mittens\nBrown paper packages tied up with string\nCrushing one's enemies\nSeeing them driven before you\nLamentations of the women",
+    body: "Raindrops on roses\nWhiskers on kittens\nBright copper kettles\nWarm woolen mittens\nBrown paper packages tied up with string\nCrushing one's enemies\nSeeing them driven before you\nHearing the lamentations of the women",
   },
 ];

@@ -1,10 +1,14 @@
 import { colorPaletteOptions } from '../../utils/colorPalettes';
 import '../NavDrawer/NavDrawer.scss';
 
-const ColorChoice = ({ color, setColorPalette }) => {
+const ColorChoice = ({ color, colorPalette, setColorPalette }) => {
   return (
     <div
-      className={`color-choice ${color}`}
+      className={
+        colorPalette.name === color
+          ? `color-choice ${color} current`
+          : `color-choice ${color}`
+      }
       onClick={() => setColorPalette(colorPaletteOptions[color])}
     ></div>
   );

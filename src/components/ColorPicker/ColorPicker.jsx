@@ -1,11 +1,11 @@
 // import './ColorPicker.scss';
-import '../../assets/styles/globals.scss';
+import './ColorPicker.scss';
 import { ColorChoice } from '../index';
 import { useEffect, useState } from 'react';
 import { colorPaletteOptions } from '../../utils/colorPalettes';
 
 const ColorPicker = () => {
-  const [colorPalette, setColorPalette] = useState(colorPaletteOptions.default);
+  const [colorPalette, setColorPalette] = useState(colorPaletteOptions.dark);
   useEffect(() => {
     document.documentElement.style.setProperty(
       '--background-color',
@@ -31,13 +31,17 @@ const ColorPicker = () => {
       '--caution-color',
       colorPalette.cautioncolor
     );
-    console.log(colorPalette);
   }, [colorPalette]);
 
   return (
     <div className='color-picker'>
       <ColorChoice
-        color='default'
+        color='dark'
+        colorPalette={colorPalette}
+        setColorPalette={setColorPalette}
+      />
+      <ColorChoice
+        color='light'
         colorPalette={colorPalette}
         setColorPalette={setColorPalette}
       />

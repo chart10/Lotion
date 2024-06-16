@@ -23,8 +23,11 @@
   border: 1px solid globals.$primary-color;
 }
 
-.default {
+.dark {
   background-color: #808080;
+}
+.light {
+  background-color: #ffffff;
 }
 
 .yellow {
@@ -32,9 +35,9 @@
 }
 
 .blue {
-  background-color: #48a1ef;
+  background-color: #859801;
 }
 
 .purple {
-  background-color: blueviolet;
+  background-color: #7a6fa4;
 }
