@@ -1,17 +1,5 @@
 export const stockNotes = [
   {
-    title: 'My Thesis',
-    body: `"Paper Mario: The Thousand-Year Door" earns its place among the best games of all time for several reasons:\n
-Innovative Gameplay: It innovatively blends traditional RPG elements with platforming and puzzle-solving, creating a unique and engaging gameplay experience. The use of the paper aesthetic adds another layer of creativity to the mechanics.\n
-Compelling Storytelling: The game features a charming and well-crafted storyline with memorable characters, plot twists, and humor. The narrative is engaging and keeps players invested from start to finish.\n
-Character Design and Development: Each character, whether protagonist or NPC, is distinct and memorable, with their own quirks and personalities. Players develop a strong emotional attachment to these characters throughout the game.\n
-Visual and Sound Design: The paper-inspired art style is visually stunning and adds a whimsical charm to the game world. Additionally, the soundtrack is exceptionally well-composed, enhancing the overall atmosphere and immersion.\n
-Varied Gameplay Mechanics: "The Thousand-Year Door" offers a wide range of gameplay mechanics, including turn-based combat, exploration, puzzle-solving, and mini-games. This variety keeps the gameplay experience fresh and engaging.\n
-Replayability: The game offers multiple paths, side quests, and collectibles, encouraging players to replay the game to discover everything it has to offer. Additionally, the Badge system allows for different playstyles and strategies, further increasing replay value.\n
-Nostalgia and Legacy: For many players, "The Thousand-Year Door" holds a special place in their hearts as a beloved childhood game. Its enduring popularity and influence have cemented its status as a classic in the gaming community.\n
-Overall, "Paper Mario: The Thousand-Year Door" excels in every aspect of game design, from its gameplay mechanics to its storytelling, making it a timeless classic and one of the best games of all time.`,
-  },
-  {
     title: 'Grocery List',
     body: `Eggs\nMilk\nBread\nChicken breasts\nFresh vegetables (e.g., spinach, tomatoes, bell peppers)\nRice\nPasta\nCheese\nYogurt\nApples`,
   },
@@ -23,7 +11,28 @@ Donec dignissim sed elit ac sollicitudin. Quisque quis nisi at turpis cursus dig
 Sed cursus volutpat tristique. Quisque placerat est nec magna maximus, ut eleifend dolor iaculis. Nunc feugiat sed massa at pulvinar. Duis tincidunt enim eu turpis commodo, quis volutpat arcu auctor. Duis consequat bibendum dui, varius cursus lacus. Vivamus mattis mauris sed interdum viverra. Cras at porttitor dolor, vitae interdum risus. Sed ultricies, leo ac tristique iaculis, nibh velit rhoncus nulla, vitae pharetra metus erat at ligula. Maecenas ut velit nulla.\n
 Sed erat urna, malesuada sit amet quam nec, sagittis tempus diam. Cras venenatis rutrum consequat. Duis euismod euismod odio vitae porttitor. Etiam ut rhoncus nunc. Maecenas laoreet ac nisl non suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Maecenas id eros fringilla, eleifend leo nec, malesuada urna. Quisque commodo lectus pellentesque ex fringilla pretium.`,
   },
-  { title: 'Note 3', body: 'This is the contents of note 3.' },
-  { title: 'Note 4', body: 'This is the contents of note 4.' },
-  { title: 'Note 5', body: 'This is the contents of note 5.' },
+  {
+    title: 'Todo 6/17',
+    body: 'Check and respond to emails\nOrder birthday cake\nGive cat flea medication\nSubmit thesis',
+  },
+  {
+    title: 'Todo 6/16',
+    body: 'Call Dad\nGo to the gym\nBuy Groceries\nDrink spiders',
+  },
+  {
+    title: 'My Thesis About Paper Mario: The Thousand Year Door',
+    body: `"Paper Mario: The Thousand-Year Door" earns its place among the best games of all time for several reasons:\n
+Innovative Gameplay: It innovatively blends traditional RPG elements with platforming and puzzle-solving, creating a unique and engaging gameplay experience. The use of the paper aesthetic adds another layer of creativity to the mechanics.\n
+Compelling Storytelling: The game features a charming and well-crafted storyline with memorable characters, plot twists, and humor. The narrative is engaging and keeps players invested from start to finish.\n
+Character Design and Development: Each character, whether protagonist or NPC, is distinct and memorable, with their own quirks and personalities. Players develop a strong emotional attachment to these characters throughout the game.\n
+Visual and Sound Design: The paper-inspired art style is visually stunning and adds a whimsical charm to the game world. Additionally, the soundtrack is exceptionally well-composed, enhancing the overall atmosphere and immersion.\n
+Varied Gameplay Mechanics: "The Thousand-Year Door" offers a wide range of gameplay mechanics, including turn-based combat, exploration, puzzle-solving, and mini-games. This variety keeps the gameplay experience fresh and engaging.\n
+Replayability: The game offers multiple paths, side quests, and collectibles, encouraging players to replay the game to discover everything it has to offer. Additionally, the Badge system allows for different playstyles and strategies, further increasing replay value.\n
+Nostalgia and Legacy: For many players, "The Thousand-Year Door" holds a special place in their hearts as a beloved childhood game. Its enduring popularity and influence have cemented its status as a classic in the gaming community.\n
+Overall, "Paper Mario: The Thousand-Year Door" excels in every aspect of game design, from its gameplay mechanics to its storytelling, making it a timeless classic and one of the best games of all time.`,
+  },
+  {
+    title: 'Favorite Things',
+    body: "Raindrops on roses\nWhiskers on kittens\nBright copper kettles\nWarm woolen mittens\nBrown paper packages tied up with string\nCrushing one's enemies\nSeeing them driven before you\nLamentations of the women",
+  },
 ];

@@ -3,7 +3,7 @@ import { useAppContext } from '../../App';
 import './NoteEditor.scss';
 
 const NoteEditor = () => {
-  const { currentNote, handleReseed, saveCurrentNote } = useAppContext();
+  const { currentNote, saveCurrentNote } = useAppContext();
 
   const [editingNoteTitle, setEditingNoteTitle] = useState(false);
   const [editingNoteBody, setEditingNoteBody] = useState(false);
@@ -106,12 +106,6 @@ const NoteEditor = () => {
           {currentNote.body}
         </p>
       )}
-
-      <div className='btn-container'>
-        <button className='btn reseed-btn' onClick={handleReseed}>
-          Reseed Notes
-        </button>
-      </div>
     </div>
   );
 };

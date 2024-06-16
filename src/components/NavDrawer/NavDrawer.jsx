@@ -13,7 +13,7 @@ const NavDrawer = () => {
       <NewNoteButton />
       <NoteLibrary />
       <div className='btn-container'>
-        <button className='btn reseed-btn' onClick={handleReseed}>
+        <button className='btn new-note-btn' onClick={handleReseed}>
           Reseed Notes
         </button>
       </div>

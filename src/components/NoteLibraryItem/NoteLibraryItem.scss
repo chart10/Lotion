@@ -2,20 +2,18 @@
 
 .note-library-item {
   max-width: 100%;
-  padding: 5px;
+  padding: 5px 0;
   // border: 1px solid transparent;
   border-radius: globals.$border-radius;
   display: flex;
   gap: 10px;
   align-items: center;
   position: relative;
-
   cursor: pointer;
 }
 
 .note-label:hover {
   border: 1px solid globals.$primary-color;
-  transition: border globals.$tr-speed;
 }
 
 .current-note {
@@ -32,6 +30,7 @@
   border-radius: globals.$border-radius;
   display: flex;
   align-items: center;
+  transition: border globals.$tr-speed;
 }
 
 .note-label-text {
@@ -62,7 +61,6 @@
 
 .approval-box {
   padding: 5px;
-  margin-right: 5px;
   border-radius: globals.$border-radius;
   position: absolute;
   top: 100%;
