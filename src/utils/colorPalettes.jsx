@@ -32,7 +32,7 @@ export const colorPaletteOptions = {
     primarycolor: '#839596',
     secondarycolor: '#586E76',
     linkcolor: '#005BBB',
-    highlightcolor: '#3A4351',
+    highlightcolor: '#3B4252',
     cautioncolor: '#DC322E',
   },
   purple: {

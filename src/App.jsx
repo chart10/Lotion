@@ -26,12 +26,12 @@ function App() {
   const saveCurrentNote = (updatedNote) => {
     setCurrentNote(updatedNote);
     services.noteService.updateNote(updatedNote);
-    const newNotes = [...notesList];
-    const currentNoteIndex = newNotes.findIndex(
+    const newNotesList = [...notesList];
+    const currentNoteIndex = newNotesList.findIndex(
       (note) => note.id === currentNote.id
     );
-    newNotes[currentNoteIndex] = updatedNote;
-    setNotesList(newNotes);
+    newNotesList[currentNoteIndex] = updatedNote;
+    setNotesList(newNotesList);
   };
 
   const createNewNote = (newNote) => {
@@ -39,6 +39,7 @@ function App() {
     setCurrentNote(newNote);
     const newNotesList = services.noteService.getNotes();
     setNotesList(newNotesList);
+    console.log(newNote);
   };
 
   const deleteSelectedNote = (selectedNoteId) => {

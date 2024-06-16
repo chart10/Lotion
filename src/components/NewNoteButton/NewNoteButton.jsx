@@ -7,7 +7,7 @@ const NewNoteButton = () => {
   const handleClick = () => {
     const newNote = {
       title: 'Untitled Note',
-      text: 'Write your note contents here...',
+      body: 'Write your note contents here...',
     };
     createNewNote(newNote);
   };
