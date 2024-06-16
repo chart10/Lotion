@@ -1,4 +1,10 @@
-import { NewNoteButton, NoteLibrary, UserBadge, NavFooter } from '../index';
+import {
+  NewNoteButton,
+  NoteLibrary,
+  UserBadge,
+  NavFooter,
+  ColorPicker,
+} from '../index';
 import { useAppContext } from '../../App';
 import './NavDrawer.scss';
 
@@ -17,6 +23,7 @@ const NavDrawer = () => {
           Reseed Notes
         </button>
       </div>
+      <ColorPicker />
       <NavFooter />
     </div>
   );

@@ -6,3 +6,5 @@ export { default as NewNoteButton } from './NewNoteButton/NewNoteButton';
 export { default as UserBadge } from './UserBadge/UserBadge';
 export { default as NavFooter } from './NavFooter/NavFooter';
 export { default as FooterLink } from './FooterLink/FooterLink';
+export { default as ColorPicker } from './ColorPicker/ColorPicker';
+export { default as ColorChoice } from './ColorChoice/ColorChoice';

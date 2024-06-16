@@ -1,0 +1,40 @@
+@use '../../assets/styles/globals.scss';
+
+.color-picker {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.color-choice {
+  height: 10px;
+  width: 10px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: red;
+  transition: all globals.$tr-speed;
+  cursor: pointer;
+}
+.color-choice:hover {
+  border-radius: 10%;
+}
+
+.current {
+  border: 1px solid globals.$primary-color;
+}
+
+.default {
+  background-color: #808080;
+}
+
+.yellow {
+  background-color: #d79921;
+}
+
+.blue {
+  background-color: #48a1ef;
+}
+
+.purple {
+  background-color: blueviolet;
+}
