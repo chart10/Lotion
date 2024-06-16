@@ -8,7 +8,7 @@ const appContext = createContext();
 
 function App() {
   const [notesList, setNotesList] = useState([]);
-  const [currentNote, setCurrentNote] = useState({});
+  const [currentNote, setCurrentNote] = useState(null);
 
   // ACTIONS
   const loadInitalState = () => {
@@ -34,6 +34,13 @@ function App() {
     setNotesList(newNotes);
   };
 
+  const createNewNote = (newNote) => {
+    services.noteService.createNote(newNote);
+    setCurrentNote(newNote);
+    const newNotesList = services.noteService.getNotes();
+    setNotesList(newNotesList);
+  };
+
   useEffect(() => {
     loadInitalState();
   }, []);
@@ -48,10 +55,11 @@ function App() {
         setCurrentNote,
         handleReseed,
         saveCurrentNote,
+        createNewNote,
       }}
     >
       <NavDrawer />
-      <NoteEditor />
+      {currentNote && <NoteEditor />}
     </appContext.Provider>
   );
 }

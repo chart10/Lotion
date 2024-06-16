@@ -1,9 +1,9 @@
 import { NewNoteButton, NoteLibrary, UserBadge, NavFooter } from '../index';
+import { useAppContext } from '../../App';
 import './NavDrawer.scss';
 
 const NavDrawer = () => {
-  // const { notesList, setNotesList, currentNote, setCurrentNote } =
-  //   useAppContext();
+  const { handleReseed } = useAppContext();
   return (
     <div className='nav-drawer'>
       <div className='nav-header'>
@@ -12,6 +12,11 @@ const NavDrawer = () => {
       </div>
       <NewNoteButton />
       <NoteLibrary />
+      <div className='btn-container'>
+        <button className='btn reseed-btn' onClick={handleReseed}>
+          Reseed Notes
+        </button>
+      </div>
       <NavFooter />
     </div>
   );

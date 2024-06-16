@@ -1,7 +1,7 @@
 export default class NoteService {
   nextId;
   constructor() {
-    this.nextId = 1;
+    this.nextId = 0;
   }
 
   emptyNotes() {
@@ -11,7 +11,7 @@ export default class NoteService {
 
   getNotes() {
     let notes = [];
-    let noteIds = this.getNoteIds();
+    let noteIds = this.getNoteIds() || [];
     for (let id of noteIds) {
       const note = JSON.parse(localStorage.getItem(`note.${id}`));
       if (note) notes.push(note);
@@ -28,6 +28,7 @@ export default class NoteService {
   }
 
   createNote(note) {
+    // debugger;
     const id = this.nextId;
     this.nextId = this.nextId + 1;
     note.id = id;

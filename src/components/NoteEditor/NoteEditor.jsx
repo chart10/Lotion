@@ -45,7 +45,9 @@ const NoteEditor = () => {
           type='text'
           maxLength={120}
           defaultValue={
-            currentNote.title === 'Untitled Note' ? '' : currentNote.title
+            currentNote.title && currentNote.title === 'Untitled Note'
+              ? ''
+              : currentNote.title
           }
           rows={1}
           autoFocus
@@ -54,23 +56,29 @@ const NoteEditor = () => {
         />
       ) : (
         <div className='note-title-wrapper'>
-          <h1
-            className={
-              currentNote.title === 'Untitled Note'
-                ? 'note-title unedited'
-                : 'note-title'
-            }
-            onClick={() => setEditingNoteTitle(true)}
-            onMouseEnter={() => {
-              if (currentNote.title.length > 20) setShowFullTitle(true);
-            }}
-            onMouseLeave={() => setShowFullTitle(false)}
-          >
-            {currentNote.title}
-          </h1>
-          <div className={showFullTitle ? 'full-title shown' : 'full-title'}>
-            {currentNote.title}
-          </div>
+          {currentNote && (
+            <>
+              <h1
+                className={
+                  currentNote.title !== undefined
+                    ? 'note-title unedited'
+                    : 'note-title'
+                }
+                onClick={() => setEditingNoteTitle(true)}
+                onMouseEnter={() => {
+                  if (currentNote.title.length > 20) setShowFullTitle(true);
+                }}
+                onMouseLeave={() => setShowFullTitle(false)}
+              >
+                {currentNote.title}
+              </h1>
+              <div
+                className={showFullTitle ? 'full-title shown' : 'full-title'}
+              >
+                {currentNote.title}
+              </div>
+            </>
+          )}
         </div>
       )}
       {editingNoteBody ? (

@@ -6,6 +6,9 @@ const NewNoteButton = () => {
 
   const handleClick = () => {
     const newNote = { title: 'Untitled Note', text: 'Write your text here...' };
+    // ACTION   Create newNote in backend
+    //          Set currentNote to newNote
+    //          Update NoteList with updated backend data
     const newId = services.noteService.createNote(newNote);
     console.log(newId);
     setCurrentNote({ ...newNote, id: newId });
