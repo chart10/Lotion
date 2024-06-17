@@ -1,3 +1,5 @@
+@use '../../assets/styles/globals.scss';
+
 .note-library {
   height: 100%;
   overflow: scroll;
@@ -8,6 +10,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  -webkit-mask-image: linear-gradient(180deg, #000 80%, transparent);
 }
 .note-library::-webkit-scrollbar {
   display: none;

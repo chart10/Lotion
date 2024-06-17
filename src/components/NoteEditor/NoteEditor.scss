@@ -39,7 +39,7 @@
 .full-title.shown {
   visibility: visible;
   opacity: 1;
-  transition: all globals.$tr-speed 0.5s;
+  transition: all globals.$tr-speed globals.$tr-delay;
 }
 
 .note-title-input {
@@ -71,6 +71,7 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   cursor: pointer;
+  -webkit-mask-image: linear-gradient(180deg, #000 90%, transparent);
 }
 .note-body-input {
   height: 100%;
