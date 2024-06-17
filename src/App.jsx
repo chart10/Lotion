@@ -46,6 +46,9 @@ function App() {
     services.noteService.deleteNote(selectedNoteId);
     const newNoteList = notesList.filter((note) => note.id !== selectedNoteId);
     setNotesList(newNoteList);
+    if (selectedNoteId === currentNote.id) {
+      setCurrentNote({});
+    }
   };
 
   useEffect(() => {

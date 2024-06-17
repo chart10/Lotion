@@ -1,7 +1,7 @@
 export default class NoteService {
   nextId;
   constructor() {
-    this.nextId = 0;
+    this.nextId = 1;
   }
 
   emptyNotes() {
