@@ -29,10 +29,11 @@ export default class NoteService {
 
   createNote(note) {
     // debugger;
-    const id = this.nextId;
-    this.nextId = this.nextId + 1;
-    note.id = id;
-    this.addIdToNoteIds(id);
+    let noteIdIterator = Number(localStorage.getItem('noteIdIterator'));
+    noteIdIterator += 1;
+    localStorage.setItem('noteIdIterator', noteIdIterator);
+    note.id = noteIdIterator;
+    this.addIdToNoteIds(noteIdIterator);
     localStorage.setItem(`note.${note.id}`, JSON.stringify(note));
     return note.id;
   }

@@ -47,7 +47,7 @@ function App() {
     const newNoteList = notesList.filter((note) => note.id !== selectedNoteId);
     setNotesList(newNoteList);
     if (selectedNoteId === currentNote.id) {
-      setCurrentNote({});
+      setCurrentNote(null);
     }
   };
 
