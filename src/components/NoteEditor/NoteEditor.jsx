@@ -99,7 +99,7 @@ const NoteEditor = () => {
           }
           onClick={() => setEditingNoteBody(true)}
         >
-          {currentNote.body}
+          {currentNote.body + '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'}
         </p>
       )}
     </div>

@@ -7,7 +7,6 @@ const NoteLibraryItem = ({ note }) => {
   const { currentNote, setCurrentNote, deleteSelectedNote } = useAppContext();
 
   const handleNoteClick = () => {
-    // services.noteService.updateNote(currentNote);
     setCurrentNote(note);
   };
 
