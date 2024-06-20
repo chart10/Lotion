@@ -4,11 +4,10 @@ import './NoteLibraryItem.scss';
 import { useState } from 'react';
 
 const NoteLibraryItem = ({ note }) => {
-  const { services, currentNote, setCurrentNote, deleteSelectedNote } =
-    useAppContext();
+  const { currentNote, setCurrentNote, deleteSelectedNote } = useAppContext();
 
   const handleNoteClick = () => {
-    services.noteService.updateNote(currentNote);
+    // services.noteService.updateNote(currentNote);
     setCurrentNote(note);
   };
 
@@ -26,7 +25,9 @@ const NoteLibraryItem = ({ note }) => {
     <div className='note-library-item'>
       <div
         className={
-          note.id === currentNote.id ? 'note-label current-note' : 'note-label'
+          currentNote && note.id === currentNote.id
+            ? 'note-label current-note'
+            : 'note-label'
         }
         onClick={handleNoteClick}
         onMouseEnter={() => {
@@ -34,9 +35,7 @@ const NoteLibraryItem = ({ note }) => {
         }}
         onMouseLeave={() => setShowFullItemTitle(false)}
       >
-        <span className='note-label-text'>
-          {note.id === currentNote.id ? currentNote.title : note.title}
-        </span>
+        <span className='note-label-text'>{note.title}</span>
       </div>
       <button
         className={showApproval ? 'delete-btn btn pending' : 'delete-btn btn'}
