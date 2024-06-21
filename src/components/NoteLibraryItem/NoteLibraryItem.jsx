@@ -1,10 +1,19 @@
 import { useAppContext } from '../../App';
-import { BsX } from 'react-icons/bs';
 import './NoteLibraryItem.scss';
 import { useState } from 'react';
+import DeleteButton from './DeleteButton';
+
+// const useFocus = () => {
+//   const htmlElRef = useRef(null);
+//   const setFocus = () => {
+//     htmlElRef.current && htmlElRef.current.focus();
+//   };
+
+//   return [htmlElRef, setFocus];
+// };
 
 const NoteLibraryItem = ({ note }) => {
-  const { currentNote, setCurrentNote, deleteSelectedNote } = useAppContext();
+  const { currentNote, setCurrentNote } = useAppContext();
 
   const handleNoteClick = () => {
     setCurrentNote(note);
@@ -13,12 +22,7 @@ const NoteLibraryItem = ({ note }) => {
   const [showApproval, setShowApproval] = useState(false);
   const [showFullItemTitle, setShowFullItemTitle] = useState(false);
 
-  const handleConfirmDelete = (noteId) => {
-    deleteSelectedNote(noteId);
-  };
-  const handleClickDelete = () => {
-    setShowApproval(!showApproval);
-  };
+  // const [approvalBoxRef, setApprovalBoxFocus] = useFocus();
 
   return (
     <div className='note-library-item'>
@@ -36,12 +40,6 @@ const NoteLibraryItem = ({ note }) => {
       >
         <span className='note-label-text'>{note.title}</span>
       </div>
-      <button
-        className={showApproval ? 'delete-btn btn pending' : 'delete-btn btn'}
-        onClick={handleClickDelete}
-      >
-        <BsX size={'1em'} />
-      </button>
       <div
         className={
           showFullItemTitle ? 'full-item-title shown' : 'full-item-title'
@@ -49,22 +47,12 @@ const NoteLibraryItem = ({ note }) => {
       >
         {note.title}
       </div>
-      <div
-        className={showApproval ? 'approval-box active' : 'approval-box'}
-        autoFocus
-        onBlur={() => setShowApproval(false)}
-      >
-        Delete?
-        <span className='yes' onClick={() => handleConfirmDelete(note.id)}>
-          {' '}
-          Y{' '}
-        </span>
-        /
-        <span className='no' onClick={() => setShowApproval(false)}>
-          {' '}
-          N
-        </span>
-      </div>
+
+      <DeleteButton
+        note={note}
+        showApproval={showApproval}
+        setShowApproval={setShowApproval}
+      />
     </div>
   );
 };

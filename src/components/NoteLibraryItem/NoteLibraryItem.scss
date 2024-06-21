@@ -76,7 +76,7 @@
 .full-item-title.shown {
   visibility: visible;
   opacity: 1;
-  transition: all globals.$tr-speed globals.$tr-delay;
+  transition: all globals.$tr-speed 0.5s;
 }
 
 .approval-box {
