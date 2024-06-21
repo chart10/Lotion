@@ -1,6 +1,6 @@
 export const colorPaletteOptions = {
   dark: {
-    name: 'default',
+    name: 'dark',
     bgcolor: '#202120',
     primarycolor: '#F8F7F3',
     secondarycolor: '#545454',
