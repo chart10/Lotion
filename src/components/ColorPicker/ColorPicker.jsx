@@ -28,6 +28,10 @@ const ColorPicker = () => {
       colorPalette.highlightcolor
     );
     document.documentElement.style.setProperty(
+      '--highlight-text',
+      colorPalette.highlighttext
+    );
+    document.documentElement.style.setProperty(
       '--caution-color',
       colorPalette.cautioncolor
     );
@@ -46,17 +50,17 @@ const ColorPicker = () => {
         setColorPalette={setColorPalette}
       />
       <ColorChoice
-        color='yellow'
+        color='gruvbox'
         colorPalette={colorPalette}
         setColorPalette={setColorPalette}
       />
       <ColorChoice
-        color='blue'
+        color='solarized'
         colorPalette={colorPalette}
         setColorPalette={setColorPalette}
       />
       <ColorChoice
-        color='purple'
+        color='amethyst'
         colorPalette={colorPalette}
         setColorPalette={setColorPalette}
       />

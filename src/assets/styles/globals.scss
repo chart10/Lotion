@@ -1,10 +1,11 @@
 :root {
-  --background-color: black;
-  --primary-color: white;
-  --secondary-color: grey;
-  --link-color: #48a1ef;
-  --highlight-color: #292929;
-  --caution-color: #e63946;
+  --background-color: #202120;
+  --primary-color: #f8f7f3;
+  --secondary-color: #545454;
+  --link-color: #ffcb6c;
+  --highlight-color: #3b4251;
+  --hightlight-text: #f8f7f3;
+  --caution-color: #ff5655;
 }
 
 $bg-color: var(--background-color);
@@ -12,6 +13,7 @@ $primary-color: var(--primary-color);
 $secondary-color: var(--secondary-color);
 $link-color: var(--link-color);
 $highlight-color: var(--highlight-color);
+$highlight-text: var(--highlight-text);
 $caution-color: var(--caution-color);
 
 $border-radius: 4px;

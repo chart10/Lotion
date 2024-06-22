@@ -10,6 +10,7 @@ const ColorChoice = ({ color, colorPalette, setColorPalette }) => {
           : `color-choice ${color}`
       }
       onClick={() => setColorPalette(colorPaletteOptions[color])}
+      title={color}
     ></div>
   );
 };

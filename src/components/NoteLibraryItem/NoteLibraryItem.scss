@@ -18,6 +18,7 @@
 
 .current-note {
   background-color: globals.$highlight-color;
+  color: globals.$highlight-text;
 }
 .current-note:hover {
   border: 1px solid transparent;
