@@ -1,9 +1,14 @@
 @use './assets/styles/globals.scss';
 
+@font-face {
+  font-family: Merriweather;
+  src: url(./assets/fonts/Merriweather-Regular.ttf);
+}
+
 html {
   background-color: globals.$bg-color;
   color: globals.$primary-color;
-  font-family: 'Merriweather', serif;
+  font-family: Merriweather, serif;
   font-weight: 300;
   letter-spacing: 1.5px;
   transition: all globals.$tr-speed;
@@ -29,7 +34,7 @@ html {
   border-radius: globals.$border-radius;
   background-color: globals.$bg-color;
   color: globals.$primary-color;
-  font-family: 'Merriweather', serif;
+  font-family: Merriweather, serif;
   font-weight: 300;
   letter-spacing: 1.5px;
   cursor: pointer;
