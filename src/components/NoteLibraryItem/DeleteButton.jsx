@@ -1,20 +1,31 @@
+import { useRef } from 'react';
 import { useAppContext } from '../../App';
 import { BsX } from 'react-icons/bs';
 
+const useFocus = () => {
+  const htmlElRef = useRef(null);
+  const setFocus = () => {
+    htmlElRef.current && htmlElRef.current.focus();
+  };
+
+  return [htmlElRef, setFocus];
+};
+
 const DeleteButton = ({ note, showApproval, setShowApproval }) => {
   const { deleteSelectedNote } = useAppContext();
+  const [approvalBoxRef, setApprovalBoxFocus] = useFocus();
+
+  const handleClickDelete = () => {
+    setShowApproval(!showApproval);
+    setApprovalBoxFocus();
+  };
 
   const handleConfirmDelete = (noteId) => {
     deleteSelectedNote(noteId);
   };
-  const handleClickDelete = () => {
-    setShowApproval(!showApproval);
-    // document.getElementById('approval').focus();
-    console.log('approval set');
-  };
 
   return (
-    <div>
+    <div className='delete-btn-container'>
       <button
         className={showApproval ? 'delete-btn btn pending' : 'delete-btn btn'}
         onClick={handleClickDelete}
@@ -24,12 +35,12 @@ const DeleteButton = ({ note, showApproval, setShowApproval }) => {
 
       <div
         className={showApproval ? 'approval-box active' : 'approval-box'}
-        id='approval'
-        tabIndex={showApproval ? '-1' : ''}
+        tabIndex='0'
         onBlur={() => {
           setShowApproval(false);
           console.log('approval removed');
         }}
+        ref={approvalBoxRef}
       >
         Delete?
         <span className='yes' onClick={() => handleConfirmDelete(note.id)}>

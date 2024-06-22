@@ -25,7 +25,7 @@
 
 .note-label {
   height: 100%;
-  width: 78%;
+  width: 80%;
   border: 1px solid transparent;
   border-radius: globals.$border-radius;
   display: flex;
@@ -40,11 +40,14 @@
   text-overflow: ellipsis;
 }
 
-.delete-btn {
-  display: flex;
+.delete-btn-container {
   margin-left: auto;
   height: 100%;
   aspect-ratio: 1/1;
+}
+
+.delete-btn {
+  display: flex;
   transition: all globals.$tr-speed;
 }
 .delete-btn.pending {
