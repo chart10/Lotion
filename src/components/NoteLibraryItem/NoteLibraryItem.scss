@@ -53,12 +53,12 @@
 }
 .delete-btn.pending {
   color: globals.$bg-color;
-  border: 1px solid globals.$primary-color;
+  // border: 1px solid globals.$primary-color;
   background-color: globals.$caution-color;
 }
 .delete-btn:hover {
   color: globals.$bg-color;
-  border: 1px solid globals.$primary-color;
+  // border: 1px solid globals.$primary-color;
   background-color: globals.$caution-color;
   // transition: all globals.$tr-speed;
 }
