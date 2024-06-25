@@ -51,6 +51,13 @@ function App() {
     }
   };
 
+  const deleteAllNotes = () => {
+    notesList.map((note) => {
+      services.noteService.deleteNote(note.id);
+    });
+    loadInitalState();
+  };
+
   useEffect(() => {
     loadInitalState();
   }, []);
@@ -58,7 +65,6 @@ function App() {
   return (
     <appContext.Provider
       value={{
-        services,
         notesList,
         setNotesList,
         currentNote,
@@ -67,6 +73,7 @@ function App() {
         saveCurrentNote,
         createNewNote,
         deleteSelectedNote,
+        deleteAllNotes,
       }}
     >
       <NavDrawer />
