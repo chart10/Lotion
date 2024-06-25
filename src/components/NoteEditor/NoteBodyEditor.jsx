@@ -1,7 +1,7 @@
 import { useAppContext } from '../../App';
 import './NoteEditor.scss';
 
-const NoteBodyEditor = ({ editingNoteBody, setEditingNoteBody }) => {
+const NoteBodyEditor = ({ editingNoteBody, setEditingNoteBody, services }) => {
   const { currentNote, saveCurrentNote } = useAppContext();
 
   const handleBlur = (event) => {
@@ -16,13 +16,15 @@ const NoteBodyEditor = ({ editingNoteBody, setEditingNoteBody }) => {
     }
     setEditingNoteBody(false);
   };
+  const bodyLength = services.utilService.maxBodyLength;
+  console.log(bodyLength);
 
   return (
     <>
       {editingNoteBody ? (
         <textarea
           className='note-body-input'
-          maxLength={3500}
+          maxLength={services.utilService.maxBodyLength}
           placeholder='Write your note contents here...'
           defaultValue={
             currentNote.body === 'Write your note contents here...'

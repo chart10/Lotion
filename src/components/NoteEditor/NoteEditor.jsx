@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAppContext } from '../../App';
+import services from '../../services/services';
 import './NoteEditor.scss';
 import NoteTitleEditor from './NoteTitleEditor';
 import NoteBodyEditor from './NoteBodyEditor';
@@ -38,11 +39,13 @@ const NoteEditor = () => {
         editingNoteTitle={editingNoteTitle}
         setEditingNoteTitle={setEditingNoteTitle}
         handleBlur={handleBlur}
+        services={services}
       />
       <NoteBodyEditor
         editingNoteBody={editingNoteBody}
         setEditingNoteBody={setEditingNoteBody}
         handleBlur={handleBlur}
+        services={services}
       />
     </div>
   );
