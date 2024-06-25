@@ -12,7 +12,11 @@ function App() {
 
   // ACTIONS
   const loadInitalState = () => {
-    const initialNotes = services.noteService.getNotes();
+    let initialNotes = services.noteService.getNotes();
+    if (initialNotes.length < 1) {
+      createNewNote();
+      initialNotes = services.noteService.getNotes();
+    }
     setNotesList(initialNotes);
     setCurrentNote(initialNotes[0]);
   };
@@ -34,7 +38,11 @@ function App() {
     setNotesList(newNotesList);
   };
 
-  const createNewNote = (newNote) => {
+  const createNewNote = () => {
+    const newNote = {
+      title: 'Untitled Note',
+      body: 'Write your note contents here...',
+    };
     services.noteService.createNote(newNote);
     setCurrentNote(newNote);
     const newNotesList = services.noteService.getNotes();

@@ -5,11 +5,7 @@ const NewNoteButton = () => {
   const { createNewNote } = useAppContext();
 
   const handleClick = () => {
-    const newNote = {
-      title: 'Untitled Note',
-      body: 'Write your note contents here...',
-    };
-    createNewNote(newNote);
+    createNewNote();
   };
 
   return (
