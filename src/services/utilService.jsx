@@ -5,7 +5,7 @@ export default class UtilService {
   constructor() {
     this.maxTitleLength = 120;
     this.maxBodyLength = 3500;
-    this.nodeEnvironment = 'development';
+    this.nodeEnvironment = 'production';
   }
   development = () => {
     return this.nodeEnvironment === 'development';
