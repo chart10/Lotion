@@ -36,7 +36,6 @@ const DeleteButton = ({ note, showApproval, setShowApproval }) => {
         onClick={handleClickDelete}
         onBlur={() => {
           handleHideApproval();
-          console.log('approval removed');
         }}
       >
         <BsX size={'1em'} />
@@ -55,7 +54,6 @@ const DeleteButton = ({ note, showApproval, setShowApproval }) => {
           <span
             className='no'
             onClick={() => {
-              console.log('closing approval box');
               setShowApproval(false);
             }}
           >

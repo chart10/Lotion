@@ -22,7 +22,7 @@ function App() {
   };
 
   const handleReseed = () => {
-    services.noteService.emptyNotes();
+    services.noteService.deleteAllNotes();
     stockNotes.forEach((item) => services.noteService.createNote(item));
     loadInitalState();
   };
@@ -47,7 +47,6 @@ function App() {
     setCurrentNote(newNote);
     const newNotesList = services.noteService.getNotes();
     setNotesList(newNotesList);
-    console.log(newNote);
   };
 
   const deleteSelectedNote = (selectedNoteId) => {
@@ -65,6 +64,7 @@ function App() {
     });
     loadInitalState();
   };
+  // END ACTIONS
 
   useEffect(() => {
     loadInitalState();

@@ -1,5 +1,5 @@
 export default class NoteService {
-  emptyNotes() {
+  deleteAllNotes() {
     localStorage.clear();
     localStorage.setItem('noteIds', '[]');
   }
@@ -40,13 +40,11 @@ export default class NoteService {
   }
 
   updateNote(newNote) {
-    console.log(`update note: note.${newNote.id}`);
     localStorage.setItem(`note.${newNote.id}`, JSON.stringify(newNote));
     return 'success';
   }
 
   deleteNote(noteId) {
-    console.log(`deleting note.${noteId}`);
     localStorage.removeItem(`note.${noteId}`);
     return 'success';
   }

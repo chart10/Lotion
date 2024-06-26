@@ -16,15 +16,14 @@ const NoteBodyEditor = ({ editingNoteBody, setEditingNoteBody, services }) => {
     }
     setEditingNoteBody(false);
   };
-  const bodyLength = services.utilService.maxBodyLength;
-  console.log(bodyLength);
+  const maxBodyLength = services.utilService.maxBodyLength;
 
   return (
     <>
       {editingNoteBody ? (
         <textarea
           className='note-body-input'
-          maxLength={services.utilService.maxBodyLength}
+          maxLength={maxBodyLength}
           placeholder='Write your note contents here...'
           defaultValue={
             currentNote.body === 'Write your note contents here...'
