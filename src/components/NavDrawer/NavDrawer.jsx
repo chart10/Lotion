@@ -5,14 +5,11 @@ import {
   NavFooter,
   ColorPicker,
 } from '../index';
-import services from '../../services/services';
 import { useAppContext } from '../../App';
 import './NavDrawer.scss';
 
 const NavDrawer = () => {
-  const { handleReseed, deleteAllNotes } = useAppContext();
-
-  const devEnvironmet = services.utilService.development();
+  const { devEnvironment, handleReseed, deleteAllNotes } = useAppContext();
 
   return (
     <div className='nav-drawer'>
@@ -22,7 +19,7 @@ const NavDrawer = () => {
       </div>
       <NewNoteButton />
       <NoteLibrary />
-      {devEnvironmet && (
+      {devEnvironment && (
         <>
           <div className='btn-container'>
             <button

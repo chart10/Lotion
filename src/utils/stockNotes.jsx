@@ -33,6 +33,10 @@ Overall, "Paper Mario: The Thousand-Year Door" excels in every aspect of game de
   },
   {
     title: 'Favorite Things',
-    body: "Raindrops on roses\nWhiskers on kittens\nBright copper kettles\nWarm woolen mittens\nBrown paper packages tied up with string\nCrushing one's enemies\nSeeing them driven before you\nHearing the lamentations of the women",
+    body: 'Raindrops on roses\nWhiskers on kittens\nBright copper kettles\nWarm woolen mittens\nBrown paper packages tied up with string',
+  },
+  {
+    title: 'Welcome to Lotion',
+    body: "Lotion is your new go-to app for smooth and efficient note-taking!\n\nWhether you're a student, professional, or simply someone who loves to jot down thoughts on the go, Lotion is a simple and intuitive spot to write all those ideas down.\n\nKeep your notes hydrated with Lotion!",
   },
 ];

@@ -21,6 +21,8 @@ function App() {
     setCurrentNote(initialNotes[0]);
   };
 
+  const devEnvironment = services.utilService.development();
+
   const handleReseed = () => {
     services.noteService.deleteAllNotes();
     stockNotes.forEach((item) => services.noteService.createNote(item));
@@ -77,6 +79,7 @@ function App() {
         setNotesList,
         currentNote,
         setCurrentNote,
+        devEnvironment,
         handleReseed,
         saveCurrentNote,
         createNewNote,
