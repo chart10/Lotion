@@ -1,5 +1,6 @@
-// import { useRef } from 'react';
+import { useRef } from 'react';
 import { useAppContext } from '../../App';
+import useClickOutside from '../../hooks/useClickOutside';
 import { BsX } from 'react-icons/bs';
 
 // const useFocus = () => {
@@ -14,15 +15,21 @@ const DeleteButton = ({ note, showApproval, setShowApproval }) => {
   const { deleteSelectedNote } = useAppContext();
   // const [approvalBoxRef, setApprovalBoxFocus] = useFocus();
 
+  const approvalBoxRef = useRef();
+
+  useClickOutside(approvalBoxRef, () => {
+    setShowApproval(false);
+  });
+
   const handleClickDelete = () => {
     setShowApproval(true);
   };
 
-  const handleHideApproval = () => {
-    setTimeout(() => {
-      setShowApproval(false);
-    }, 150);
-  };
+  // const handleHideApproval = () => {
+  //   setTimeout(() => {
+  //     setShowApproval(false);
+  //   }, 150);
+  // };
 
   const handleConfirmDelete = (noteId) => {
     deleteSelectedNote(noteId);
@@ -31,19 +38,19 @@ const DeleteButton = ({ note, showApproval, setShowApproval }) => {
   return (
     <div className='delete-btn-container'>
       <button
-        tabIndex={-1}
+        // tabIndex={-1}
         className={showApproval ? 'delete-btn btn pending' : 'delete-btn btn'}
         onClick={handleClickDelete}
-        onBlur={() => {
-          handleHideApproval();
-        }}
+        // onBlur={() => {
+        //   handleHideApproval();
+        // }}
+        ref={approvalBoxRef}
       >
         <BsX size={'1em'} />
 
         <div
           className={showApproval ? 'approval-box active' : 'approval-box'}
-          tabIndex={-1}
-          // ref={approvalBoxRef}
+          // tabIndex={-1}
         >
           Delete?
           <span className='yes' onClick={() => handleConfirmDelete(note.id)}>
