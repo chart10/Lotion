@@ -1,9 +1,4 @@
 export default class NoteService {
-  // nextId;
-  // constructor() {
-  //   this.nextId = 1;
-  // }
-
   emptyNotes() {
     localStorage.clear();
     localStorage.setItem('noteIds', '[]');
@@ -24,11 +19,11 @@ export default class NoteService {
   }
 
   getNoteIds() {
-    return JSON.parse(localStorage.getItem(`noteIds`));
+    let noteIds = JSON.parse(localStorage.getItem(`noteIds`)) || [];
+    return noteIds;
   }
 
   createNote(note) {
-    // debugger;
     let noteIdIterator = Number(localStorage.getItem('noteIdIterator'));
     noteIdIterator += 1;
     localStorage.setItem('noteIdIterator', noteIdIterator);
